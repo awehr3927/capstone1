@@ -1,0 +1,77 @@
+This is a repository for terrraform code that does the following:
+1 -  deploys a 3-node kubernetes cluster on AWS EC2 t3.small vm's running Ubuntu 20.04 LTS
+2 -  defines an elastic ip, a connected network load balancer, and an application load balancer providing public access on port 80 and 8080 on that elastic ip
+3 -  deploys a rudimentary web application consisting of a back-end database, an API layer, and a standard web layer reverse proxy to read the API layer out to users. (for access and use, see "Accessing The Built Deployment" on this reamde) 
+
+Requirements for this AWS depoyment:
+
+  Local Machine Where Youre Building Must Have:
+  - a linux bash environment
+  - Terraform installed and invokable via "terraform"
+  - Ansible installed in invokable via "ansible"
+  - Kubectl Installed (but not configured) and invokable via "kubectl"
+
+  You will also require API access to AWS.
+  This access MUST be permitted to build the following in zone us-east-1:
+  - t3.small machines (3 of them)
+  - a new vpc
+  - a security group
+  - an elastic ip
+  - 2 load balancers (one type network, one type application)
+  - all related listeners, target groups, and target group attachments for said load balancers
+
+  ### WARNING #########################################################################
+  Any machine with less than 2 gigs of ram will be unstable due to lacking resources!
+  Tests with t3.micro resulted in frequent crashes of kube-system!
+  t3.small is required!
+  ######################################################################################
+
+Build Instructions:
+  1 - generate a new ssh key (do not specify passwords):
+    ssh-keygen -t rsa -f ./terraform_key
+
+  2 - insert your aws api access keys into the provider section at the top of  main.tf
+
+  3 - confirm the variable "my_ami" at line 4 of maint.tf corresponds to the AMI ID of ubuntu 20.04 LTS in your AWS console:
+      noted:
+        my_ami = "ami-0149b2da6ceec4bb0"
+
+  3 - deploy via terraform:
+    terraform init
+    terraform apply --auto-approve
+
+  NOTE:
+  should this process "fail" at any step, simply re-run apply to finish incompleted steps.
+  The provisioning steps are IDEMPOTENT:
+  Simply re-running "terraform apply --auto-approve" in the event any step fails until the process completes should work.
+
+  Example output of final step showing full completion:
+
+  eip_ip = "44.209.253.66"
+  master_ip = "3.85.31.168"
+  master_private_ip = "10.0.1.240"
+  worker1_ip = "54.92.153.2"
+  worker2_ip = "50.17.136.174"
+  alexanderwehrpr@ip-172-31-16-69:~/capstone$
+
+  NOTE: The above address list is also logged in terraform.tfstate should you lose them in scrollback
+
+Accessing The Built Deployment:
+
+  Direct access to the eip_ip via web browser should work:
+    ex:  http://<eip_ip_here>  for front-end
+         http://<eip_ip_here>:8080/demo/all to test api access
+  The browser will load a list of all transatction records.
+  Initial provisioning process pre-loads 50
+    ex formatting:
+        [{"id":1,"name":"CUSTOMER16","transaction":"16.00"},{"id":2,"name":"CUSTOMER17","transaction":"17:00"}] 
+  API layer can load rows with columns "name" and "transaction" 
+  API layer will accept loads via curl:
+         #$curl <eip_ip_here>:8080/demo/add -d name=CUSTOMER16 -d transaction=16.00
+          % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current Dload  Upload   Total   Spent  
+           0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--  100    38   100       5       100  
+         Saved
+
+SSH Access To Built Deployment:
+  all non-private ec2 vm instance IP's should be accessible via ssh as follows:
+  #$ ssh ubuntu@<ip_here> -i ./terraform_key
