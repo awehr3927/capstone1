@@ -1,0 +1,1437 @@
+alexanderwehrpr@ip-172-31-16-69:~/project1$ terraform destroy --auto-approve; terraform destroy --auto-approve
+aws_key_pair.login: Refreshing state... [id=login]
+aws_vpc.main: Refreshing state... [id=vpc-096b05419aabb9540]
+aws_subnet.main1: Refreshing state... [id=subnet-0f6446f237f4a5253]
+aws_lb_target_group.a_api_tg: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb]
+aws_subnet.main2: Refreshing state... [id=subnet-0f44d82956abbce3a]
+aws_lb_target_group.n_api_tg: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929879200000002/f7befa1f48fa7f37]
+aws_internet_gateway.maingw: Refreshing state... [id=igw-001f68ffbee634378]
+aws_lb_target_group.n_http_tg: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929874500000001/8044a5856b447997]
+aws_lb_target_group.a_http_tg: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca]
+aws_security_group.projectaccess: Refreshing state... [id=sg-01378f178de70e1e9]
+aws_eip.lbip: Refreshing state... [id=eipalloc-0de0b736f1d4d70a9]
+aws_route_table.mainrouting: Refreshing state... [id=rtb-0effc50920f4d0713]
+aws_lb.alb: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/app/project-alb/0894784ed3f007aa]
+aws_instance.worker2: Refreshing state... [id=i-0e7b43f8e0a1f3adb]
+aws_instance.worker1: Refreshing state... [id=i-0e65c7be72702a61e]
+aws_instance.master: Refreshing state... [id=i-05b65954f5a5a70fa]
+aws_route_table_association.public1: Refreshing state... [id=rtbassoc-09ed55b5b6415f7a9]
+aws_route_table_association.public2: Refreshing state... [id=rtbassoc-05beecd8ab8b4ab9e]
+aws_lb.nlb: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/net/project-nlb/cafee7d47843f9be]
+aws_lb_listener.api: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/d69285756ac14e3f]
+aws_lb_listener.http: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/217729087ad3c714]
+aws_lb_listener.tcp_http: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/net/project-nlb/cafee7d47843f9be/1929deba0c35fcc6]
+aws_lb_listener.tcp_api: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/net/project-nlb/cafee7d47843f9be/47e3e6e5703e2ce2]
+aws_lb_target_group_attachment.albton_api_attachment: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929879200000002/f7befa1f48fa7f37-2022112623015375570000000f]
+aws_lb_target_group_attachment.albton_http_attachment: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929874500000001/8044a5856b447997-2022112623015372860000000e]
+aws_lb_target_group_attachment.worker2to_a_api: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb-2022112622595643180000000c]
+aws_lb_target_group_attachment.worker2to_a_http: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca-2022112622595648610000000d]
+aws_lb_target_group_attachment.masterto_a_api: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb-2022112622595471330000000b]
+aws_lb_target_group_attachment.masterto_a_http: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca-2022112622595462850000000a]
+null_resource.configure_hosts: Refreshing state... [id=1844783689911191179]
+aws_lb_target_group_attachment.worker1to_a_http: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca-20221126225954162800000009]
+aws_lb_target_group_attachment.worker1to_a_api: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb-20221126225954077700000008]
+null_resource.ready_kubernetes: Refreshing state... [id=2901569142353776373]
+null_resource.deploy_apps: Refreshing state... [id=6668942683258586534]
+null_resource.wait_for_webservices: Refreshing state... [id=9038052300941907447]
+null_resource.load_data: Refreshing state... [id=8749042035801561895]
+null_resource.load_test: Refreshing state... [id=3428456281921602718]
+null_resource.load_and_test_pod_user: Refreshing state... [id=4009826962055282772]
+null_resource.backup_etcd: Refreshing state... [id=8880865779017746532]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following
+symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # aws_eip.lbip will be destroyed
+  - resource "aws_eip" "lbip" {
+      - allocation_id        = "eipalloc-0de0b736f1d4d70a9" -> null
+      - association_id       = "eipassoc-0cd4b018339829c07" -> null
+      - domain               = "vpc" -> null
+      - id                   = "eipalloc-0de0b736f1d4d70a9" -> null
+      - network_border_group = "us-east-1" -> null
+      - network_interface    = "eni-0499bcf95fffee46a" -> null
+      - private_dns          = "ip-10-0-1-91.ec2.internal" -> null
+      - private_ip           = "10.0.1.91" -> null
+      - public_dns           = "ec2-44-209-253-66.compute-1.amazonaws.com" -> null
+      - public_ip            = "44.209.253.66" -> null
+      - public_ipv4_pool     = "amazon" -> null
+      - tags                 = {} -> null
+      - tags_all             = {} -> null
+      - vpc                  = true -> null
+    }
+
+  # aws_instance.master will be destroyed
+  - resource "aws_instance" "master" {
+      - ami                                  = "ami-0149b2da6ceec4bb0" -> null
+      - arn                                  = "arn:aws:ec2:us-east-1:837789014863:instance/i-05b65954f5a5a70fa" -> null
+      - associate_public_ip_address          = true -> null
+      - availability_zone                    = "us-east-1a" -> null
+      - cpu_core_count                       = 1 -> null
+      - cpu_threads_per_core                 = 2 -> null
+      - disable_api_stop                     = false -> null
+      - disable_api_termination              = false -> null
+      - ebs_optimized                        = false -> null
+      - get_password_data                    = false -> null
+      - hibernation                          = false -> null
+      - id                                   = "i-05b65954f5a5a70fa" -> null
+      - instance_initiated_shutdown_behavior = "stop" -> null
+      - instance_state                       = "running" -> null
+      - instance_type                        = "t3.small" -> null
+      - ipv6_address_count                   = 0 -> null
+      - ipv6_addresses                       = [] -> null
+      - key_name                             = "login" -> null
+      - monitoring                           = false -> null
+      - primary_network_interface_id         = "eni-0d38e4c54304b807b" -> null
+      - private_dns                          = "ip-10-0-1-240.ec2.internal" -> null
+      - private_ip                           = "10.0.1.240" -> null
+      - public_dns                           = "ec2-3-85-31-168.compute-1.amazonaws.com" -> null
+      - public_ip                            = "3.85.31.168" -> null
+      - secondary_private_ips                = [] -> null
+      - security_groups                      = [] -> null
+      - source_dest_check                    = true -> null
+      - subnet_id                            = "subnet-0f6446f237f4a5253" -> null
+      - tags                                 = {
+          - "Name" = "kubernetes-master"
+        } -> null
+      - tags_all                             = {
+          - "Name" = "kubernetes-master"
+        } -> null
+      - tenancy                              = "default" -> null
+      - user_data_replace_on_change          = false -> null
+      - vpc_security_group_ids               = [
+          - "sg-01378f178de70e1e9",
+        ] -> null
+
+      - capacity_reservation_specification {
+          - capacity_reservation_preference = "open" -> null
+        }
+
+      - credit_specification {
+          - cpu_credits = "unlimited" -> null
+        }
+
+      - enclave_options {
+          - enabled = false -> null
+        }
+
+      - maintenance_options {
+          - auto_recovery = "default" -> null
+        }
+
+      - metadata_options {
+          - http_endpoint               = "enabled" -> null
+          - http_put_response_hop_limit = 1 -> null
+          - http_tokens                 = "optional" -> null
+          - instance_metadata_tags      = "disabled" -> null
+        }
+
+      - private_dns_name_options {
+          - enable_resource_name_dns_a_record    = false -> null
+          - enable_resource_name_dns_aaaa_record = false -> null
+          - hostname_type                        = "ip-name" -> null
+        }
+
+      - root_block_device {
+          - delete_on_termination = true -> null
+          - device_name           = "/dev/sda1" -> null
+          - encrypted             = false -> null
+          - iops                  = 100 -> null
+          - tags                  = {} -> null
+          - throughput            = 0 -> null
+          - volume_id             = "vol-07d15bb43e70a4cdd" -> null
+          - volume_size           = 8 -> null
+          - volume_type           = "gp2" -> null
+        }
+    }
+
+  # aws_instance.worker1 will be destroyed
+  - resource "aws_instance" "worker1" {
+      - ami                                  = "ami-0149b2da6ceec4bb0" -> null
+      - arn                                  = "arn:aws:ec2:us-east-1:837789014863:instance/i-0e65c7be72702a61e" -> null
+      - associate_public_ip_address          = true -> null
+      - availability_zone                    = "us-east-1a" -> null
+      - cpu_core_count                       = 1 -> null
+      - cpu_threads_per_core                 = 2 -> null
+      - disable_api_stop                     = false -> null
+      - disable_api_termination              = false -> null
+      - ebs_optimized                        = false -> null
+      - get_password_data                    = false -> null
+      - hibernation                          = false -> null
+      - id                                   = "i-0e65c7be72702a61e" -> null
+      - instance_initiated_shutdown_behavior = "stop" -> null
+      - instance_state                       = "running" -> null
+      - instance_type                        = "t3.small" -> null
+      - ipv6_address_count                   = 0 -> null
+      - ipv6_addresses                       = [] -> null
+      - key_name                             = "login" -> null
+      - monitoring                           = false -> null
+      - primary_network_interface_id         = "eni-010aeef715db7fd71" -> null
+      - private_dns                          = "ip-10-0-1-216.ec2.internal" -> null
+      - private_ip                           = "10.0.1.216" -> null
+      - public_dns                           = "ec2-54-92-153-2.compute-1.amazonaws.com" -> null
+      - public_ip                            = "54.92.153.2" -> null
+      - secondary_private_ips                = [] -> null
+      - security_groups                      = [] -> null
+      - source_dest_check                    = true -> null
+      - subnet_id                            = "subnet-0f6446f237f4a5253" -> null
+      - tags                                 = {
+          - "Name" = "kubernetes-worker1"
+        } -> null
+      - tags_all                             = {
+          - "Name" = "kubernetes-worker1"
+        } -> null
+      - tenancy                              = "default" -> null
+      - user_data_replace_on_change          = false -> null
+      - vpc_security_group_ids               = [
+          - "sg-01378f178de70e1e9",
+        ] -> null
+
+      - capacity_reservation_specification {
+          - capacity_reservation_preference = "open" -> null
+        }
+
+      - credit_specification {
+          - cpu_credits = "unlimited" -> null
+        }
+
+      - enclave_options {
+          - enabled = false -> null
+        }
+
+      - maintenance_options {
+          - auto_recovery = "default" -> null
+        }
+
+      - metadata_options {
+          - http_endpoint               = "enabled" -> null
+          - http_put_response_hop_limit = 1 -> null
+          - http_tokens                 = "optional" -> null
+          - instance_metadata_tags      = "disabled" -> null
+        }
+
+      - private_dns_name_options {
+          - enable_resource_name_dns_a_record    = false -> null
+          - enable_resource_name_dns_aaaa_record = false -> null
+          - hostname_type                        = "ip-name" -> null
+        }
+
+      - root_block_device {
+          - delete_on_termination = true -> null
+          - device_name           = "/dev/sda1" -> null
+          - encrypted             = false -> null
+          - iops                  = 100 -> null
+          - tags                  = {} -> null
+          - throughput            = 0 -> null
+          - volume_id             = "vol-069bf64087d196b28" -> null
+          - volume_size           = 8 -> null
+          - volume_type           = "gp2" -> null
+        }
+    }
+
+  # aws_instance.worker2 will be destroyed
+  - resource "aws_instance" "worker2" {
+      - ami                                  = "ami-0149b2da6ceec4bb0" -> null
+      - arn                                  = "arn:aws:ec2:us-east-1:837789014863:instance/i-0e7b43f8e0a1f3adb" -> null
+      - associate_public_ip_address          = true -> null
+      - availability_zone                    = "us-east-1b" -> null
+      - cpu_core_count                       = 1 -> null
+      - cpu_threads_per_core                 = 2 -> null
+      - disable_api_stop                     = false -> null
+      - disable_api_termination              = false -> null
+      - ebs_optimized                        = false -> null
+      - get_password_data                    = false -> null
+      - hibernation                          = false -> null
+      - id                                   = "i-0e7b43f8e0a1f3adb" -> null
+      - instance_initiated_shutdown_behavior = "stop" -> null
+      - instance_state                       = "running" -> null
+      - instance_type                        = "t3.small" -> null
+      - ipv6_address_count                   = 0 -> null
+      - ipv6_addresses                       = [] -> null
+      - key_name                             = "login" -> null
+      - monitoring                           = false -> null
+      - primary_network_interface_id         = "eni-00d26600d643ce1ae" -> null
+      - private_dns                          = "ip-10-0-0-206.ec2.internal" -> null
+      - private_ip                           = "10.0.0.206" -> null
+      - public_dns                           = "ec2-50-17-136-174.compute-1.amazonaws.com" -> null
+      - public_ip                            = "50.17.136.174" -> null
+      - secondary_private_ips                = [] -> null
+      - security_groups                      = [] -> null
+      - source_dest_check                    = true -> null
+      - subnet_id                            = "subnet-0f44d82956abbce3a" -> null
+      - tags                                 = {
+          - "Name" = "kubernetes-worker2"
+        } -> null
+      - tags_all                             = {
+          - "Name" = "kubernetes-worker2"
+        } -> null
+      - tenancy                              = "default" -> null
+      - user_data_replace_on_change          = false -> null
+      - vpc_security_group_ids               = [
+          - "sg-01378f178de70e1e9",
+        ] -> null
+
+      - capacity_reservation_specification {
+          - capacity_reservation_preference = "open" -> null
+        }
+
+      - credit_specification {
+          - cpu_credits = "unlimited" -> null
+        }
+
+      - enclave_options {
+          - enabled = false -> null
+        }
+
+      - maintenance_options {
+          - auto_recovery = "default" -> null
+        }
+
+      - metadata_options {
+          - http_endpoint               = "enabled" -> null
+          - http_put_response_hop_limit = 1 -> null
+          - http_tokens                 = "optional" -> null
+          - instance_metadata_tags      = "disabled" -> null
+        }
+
+      - private_dns_name_options {
+          - enable_resource_name_dns_a_record    = false -> null
+          - enable_resource_name_dns_aaaa_record = false -> null
+          - hostname_type                        = "ip-name" -> null
+        }
+
+      - root_block_device {
+          - delete_on_termination = true -> null
+          - device_name           = "/dev/sda1" -> null
+          - encrypted             = false -> null
+          - iops                  = 100 -> null
+          - tags                  = {} -> null
+          - throughput            = 0 -> null
+          - volume_id             = "vol-0fc2c325b0a039962" -> null
+          - volume_size           = 8 -> null
+          - volume_type           = "gp2" -> null
+        }
+    }
+
+  # aws_internet_gateway.maingw will be destroyed
+  - resource "aws_internet_gateway" "maingw" {
+      - arn      = "arn:aws:ec2:us-east-1:837789014863:internet-gateway/igw-001f68ffbee634378" -> null
+      - id       = "igw-001f68ffbee634378" -> null
+      - owner_id = "837789014863" -> null
+      - tags     = {} -> null
+      - tags_all = {} -> null
+      - vpc_id   = "vpc-096b05419aabb9540" -> null
+    }
+
+  # aws_key_pair.login will be destroyed
+  - resource "aws_key_pair" "login" {
+      - arn         = "arn:aws:ec2:us-east-1:837789014863:key-pair/login" -> null
+      - fingerprint = "6d:1c:69:54:da:ea:23:00:ea:4c:8c:62:db:8a:60:a4" -> null
+      - id          = "login" -> null
+      - key_name    = "login" -> null
+      - key_pair_id = "key-020b1a5a57f0d0856" -> null
+      - key_type    = "rsa" -> null
+      - public_key  = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDLSkiGbOhbYcLdQp+WhkXXXvCIAclVI+uHPHn7E0Fe5TIPE6XDA3/8o79gpXVVi7vi1elkM5REp6XWEthT7XtF+RSiDd0toa5LU/iphp3Ky1dLY0R2sGO3b4hK2ZTpcw1bfu2GlbfhP+12h6gtG1fncu3fPyK18c2rzoFSsIO0OlQM0q9v26gnSCujwplXA1LUzuGewLHGnP2da/pfRW3iuqG74VHRcGenaPgAoQ7wIBpUtR9c9XfWfjyx4S+KLw3h48rKnTvdnG+dlv0RNJbAm37vPE9w1WHjJk6JZ7n+PwLtPP0YcA9YDF+A7MBIaJ6RDsDBZSvghQ/8oStkqtnN alexanderwehrpr@ip-172-31-16-69" -> null
+      - tags        = {} -> null
+      - tags_all    = {} -> null
+    }
+
+  # aws_lb.alb will be destroyed
+  - resource "aws_lb" "alb" {
+      - arn                              = "arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/app/project-alb/0894784ed3f007aa" -> null
+      - arn_suffix                       = "app/project-alb/0894784ed3f007aa" -> null
+      - desync_mitigation_mode           = "defensive" -> null
+      - dns_name                         = "internal-project-alb-202310491.us-east-1.elb.amazonaws.com" -> null
+      - drop_invalid_header_fields       = false -> null
+      - enable_cross_zone_load_balancing = true -> null
+      - enable_deletion_protection       = false -> null
+      - enable_http2                     = true -> null
+      - enable_waf_fail_open             = false -> null
+      - id                               = "arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/app/project-alb/0894784ed3f007aa" -> null
+      - idle_timeout                     = 60 -> null
+      - internal                         = true -> null
+      - ip_address_type                  = "ipv4" -> null
+      - load_balancer_type               = "application" -> null
+      - name                             = "project-alb" -> null
+      - preserve_host_header             = false -> null
+      - security_groups                  = [
+          - "sg-01378f178de70e1e9",
+        ] -> null
+      - subnets                          = [
+          - "subnet-0f44d82956abbce3a",
+          - "subnet-0f6446f237f4a5253",
+        ] -> null
+      - tags                             = {} -> null
+      - tags_all                         = {} -> null
+      - vpc_id                           = "vpc-096b05419aabb9540" -> null
+      - zone_id                          = "Z35SXDOTRQ7X7K" -> null
+
+      - access_logs {
+          - enabled = false -> null
+        }
+
+      - subnet_mapping {
+          - subnet_id = "subnet-0f44d82956abbce3a" -> null
+        }
+      - subnet_mapping {
+          - subnet_id = "subnet-0f6446f237f4a5253" -> null
+        }
+    }
+
+  # aws_lb.nlb will be destroyed
+  - resource "aws_lb" "nlb" {
+      - arn                              = "arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/net/project-nlb/cafee7d47843f9be" -> null
+      - arn_suffix                       = "net/project-nlb/cafee7d47843f9be" -> null
+      - dns_name                         = "project-nlb-cafee7d47843f9be.elb.us-east-1.amazonaws.com" -> null
+      - enable_cross_zone_load_balancing = false -> null
+      - enable_deletion_protection       = false -> null
+      - id                               = "arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/net/project-nlb/cafee7d47843f9be" -> null
+      - internal                         = false -> null
+      - ip_address_type                  = "ipv4" -> null
+      - load_balancer_type               = "network" -> null
+      - name                             = "project-nlb" -> null
+      - security_groups                  = [] -> null
+      - subnets                          = [
+          - "subnet-0f6446f237f4a5253",
+        ] -> null
+      - tags                             = {} -> null
+      - tags_all                         = {} -> null
+      - vpc_id                           = "vpc-096b05419aabb9540" -> null
+      - zone_id                          = "Z26RNL4JYFTOTI" -> null
+
+      - access_logs {
+          - enabled = false -> null
+        }
+
+      - subnet_mapping {
+          - allocation_id = "eipalloc-0de0b736f1d4d70a9" -> null
+          - subnet_id     = "subnet-0f6446f237f4a5253" -> null
+        }
+    }
+
+  # aws_lb_listener.api will be destroyed
+  - resource "aws_lb_listener" "api" {
+      - arn               = "arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/d69285756ac14e3f" -> null
+      - id                = "arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/d69285756ac14e3f" -> null
+      - load_balancer_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/app/project-alb/0894784ed3f007aa" -> null
+      - port              = 8080 -> null
+      - protocol          = "HTTP" -> null
+      - tags              = {} -> null
+      - tags_all          = {} -> null
+
+      - default_action {
+          - order            = 1 -> null
+          - target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb" -> null
+          - type             = "forward" -> null
+        }
+    }
+
+  # aws_lb_listener.http will be destroyed
+  - resource "aws_lb_listener" "http" {
+      - arn               = "arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/217729087ad3c714" -> null
+      - id                = "arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/217729087ad3c714" -> null
+      - load_balancer_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/app/project-alb/0894784ed3f007aa" -> null
+      - port              = 80 -> null
+      - protocol          = "HTTP" -> null
+      - tags              = {} -> null
+      - tags_all          = {} -> null
+
+      - default_action {
+          - order            = 1 -> null
+          - target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca" -> null
+          - type             = "forward" -> null
+        }
+    }
+
+  # aws_lb_listener.tcp_api will be destroyed
+  - resource "aws_lb_listener" "tcp_api" {
+      - arn               = "arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/net/project-nlb/cafee7d47843f9be/47e3e6e5703e2ce2" -> null
+      - id                = "arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/net/project-nlb/cafee7d47843f9be/47e3e6e5703e2ce2" -> null
+      - load_balancer_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/net/project-nlb/cafee7d47843f9be" -> null
+      - port              = 8080 -> null
+      - protocol          = "TCP" -> null
+      - tags              = {} -> null
+      - tags_all          = {} -> null
+
+      - default_action {
+          - order            = 1 -> null
+          - target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929879200000002/f7befa1f48fa7f37" -> null
+          - type             = "forward" -> null
+        }
+    }
+
+  # aws_lb_listener.tcp_http will be destroyed
+  - resource "aws_lb_listener" "tcp_http" {
+      - arn               = "arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/net/project-nlb/cafee7d47843f9be/1929deba0c35fcc6" -> null
+      - id                = "arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/net/project-nlb/cafee7d47843f9be/1929deba0c35fcc6" -> null
+      - load_balancer_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/net/project-nlb/cafee7d47843f9be" -> null
+      - port              = 80 -> null
+      - protocol          = "TCP" -> null
+      - tags              = {} -> null
+      - tags_all          = {} -> null
+
+      - default_action {
+          - order            = 1 -> null
+          - target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929874500000001/8044a5856b447997" -> null
+          - type             = "forward" -> null
+        }
+    }
+
+  # aws_lb_target_group.a_api_tg will be destroyed
+  - resource "aws_lb_target_group" "a_api_tg" {
+      - arn                                = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb" -> null
+      - arn_suffix                         = "targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb" -> null
+      - connection_termination             = false -> null
+      - deregistration_delay               = "300" -> null
+      - id                                 = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb" -> null
+      - ip_address_type                    = "ipv4" -> null
+      - lambda_multi_value_headers_enabled = false -> null
+      - load_balancing_algorithm_type      = "round_robin" -> null
+      - name                               = "tf-20221126225929884800000003" -> null
+      - port                               = 8080 -> null
+      - protocol                           = "HTTP" -> null
+      - protocol_version                   = "HTTP1" -> null
+      - proxy_protocol_v2                  = false -> null
+      - slow_start                         = 0 -> null
+      - tags                               = {} -> null
+      - tags_all                           = {} -> null
+      - target_type                        = "instance" -> null
+      - vpc_id                             = "vpc-096b05419aabb9540" -> null
+
+      - health_check {
+          - enabled             = true -> null
+          - healthy_threshold   = 5 -> null
+          - interval            = 30 -> null
+          - matcher             = "200" -> null
+          - path                = "/" -> null
+          - port                = "traffic-port" -> null
+          - protocol            = "HTTP" -> null
+          - timeout             = 5 -> null
+          - unhealthy_threshold = 2 -> null
+        }
+
+      - stickiness {
+          - cookie_duration = 86400 -> null
+          - enabled         = false -> null
+          - type            = "lb_cookie" -> null
+        }
+
+      - target_failover {}
+    }
+
+  # aws_lb_target_group.a_http_tg will be destroyed
+  - resource "aws_lb_target_group" "a_http_tg" {
+      - arn                                = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca" -> null
+      - arn_suffix                         = "targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca" -> null
+      - connection_termination             = false -> null
+      - deregistration_delay               = "300" -> null
+      - id                                 = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca" -> null
+      - ip_address_type                    = "ipv4" -> null
+      - lambda_multi_value_headers_enabled = false -> null
+      - load_balancing_algorithm_type      = "round_robin" -> null
+      - name                               = "tf-20221126225929895000000004" -> null
+      - port                               = 80 -> null
+      - protocol                           = "HTTP" -> null
+      - protocol_version                   = "HTTP1" -> null
+      - proxy_protocol_v2                  = false -> null
+      - slow_start                         = 0 -> null
+      - tags                               = {} -> null
+      - tags_all                           = {} -> null
+      - target_type                        = "instance" -> null
+      - vpc_id                             = "vpc-096b05419aabb9540" -> null
+
+      - health_check {
+          - enabled             = true -> null
+          - healthy_threshold   = 5 -> null
+          - interval            = 30 -> null
+          - matcher             = "200" -> null
+          - path                = "/" -> null
+          - port                = "traffic-port" -> null
+          - protocol            = "HTTP" -> null
+          - timeout             = 5 -> null
+          - unhealthy_threshold = 2 -> null
+        }
+
+      - stickiness {
+          - cookie_duration = 86400 -> null
+          - enabled         = false -> null
+          - type            = "lb_cookie" -> null
+        }
+
+      - target_failover {}
+    }
+
+  # aws_lb_target_group.n_api_tg will be destroyed
+  - resource "aws_lb_target_group" "n_api_tg" {
+      - arn                                = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929879200000002/f7befa1f48fa7f37" -> null
+      - arn_suffix                         = "targetgroup/tf-20221126225929879200000002/f7befa1f48fa7f37" -> null
+      - connection_termination             = false -> null
+      - deregistration_delay               = "300" -> null
+      - id                                 = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929879200000002/f7befa1f48fa7f37" -> null
+      - ip_address_type                    = "ipv4" -> null
+      - lambda_multi_value_headers_enabled = false -> null
+      - name                               = "tf-20221126225929879200000002" -> null
+      - port                               = 8080 -> null
+      - preserve_client_ip                 = "true" -> null
+      - protocol                           = "TCP" -> null
+      - proxy_protocol_v2                  = false -> null
+      - slow_start                         = 0 -> null
+      - tags                               = {} -> null
+      - tags_all                           = {} -> null
+      - target_type                        = "alb" -> null
+      - vpc_id                             = "vpc-096b05419aabb9540" -> null
+
+      - health_check {
+          - enabled             = true -> null
+          - healthy_threshold   = 5 -> null
+          - interval            = 30 -> null
+          - matcher             = "200-399" -> null
+          - path                = "/" -> null
+          - port                = "traffic-port" -> null
+          - protocol            = "HTTP" -> null
+          - timeout             = 6 -> null
+          - unhealthy_threshold = 2 -> null
+        }
+
+      - stickiness {
+          - cookie_duration = 0 -> null
+          - enabled         = false -> null
+          - type            = "source_ip" -> null
+        }
+
+      - target_failover {}
+    }
+
+  # aws_lb_target_group.n_http_tg will be destroyed
+  - resource "aws_lb_target_group" "n_http_tg" {
+      - arn                                = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929874500000001/8044a5856b447997" -> null
+      - arn_suffix                         = "targetgroup/tf-20221126225929874500000001/8044a5856b447997" -> null
+      - connection_termination             = false -> null
+      - deregistration_delay               = "300" -> null
+      - id                                 = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929874500000001/8044a5856b447997" -> null
+      - ip_address_type                    = "ipv4" -> null
+      - lambda_multi_value_headers_enabled = false -> null
+      - name                               = "tf-20221126225929874500000001" -> null
+      - port                               = 80 -> null
+      - preserve_client_ip                 = "true" -> null
+      - protocol                           = "TCP" -> null
+      - proxy_protocol_v2                  = false -> null
+      - slow_start                         = 0 -> null
+      - tags                               = {} -> null
+      - tags_all                           = {} -> null
+      - target_type                        = "alb" -> null
+      - vpc_id                             = "vpc-096b05419aabb9540" -> null
+
+      - health_check {
+          - enabled             = true -> null
+          - healthy_threshold   = 5 -> null
+          - interval            = 30 -> null
+          - matcher             = "200-399" -> null
+          - path                = "/" -> null
+          - port                = "traffic-port" -> null
+          - protocol            = "HTTP" -> null
+          - timeout             = 6 -> null
+          - unhealthy_threshold = 2 -> null
+        }
+
+      - stickiness {
+          - cookie_duration = 0 -> null
+          - enabled         = false -> null
+          - type            = "source_ip" -> null
+        }
+
+      - target_failover {}
+    }
+
+  # aws_lb_target_group_attachment.albton_api_attachment will be destroyed
+  - resource "aws_lb_target_group_attachment" "albton_api_attachment" {
+      - id               = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929879200000002/f7befa1f48fa7f37-2022112623015375570000000f" -> null
+      - port             = 8080 -> null
+      - target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929879200000002/f7befa1f48fa7f37" -> null
+      - target_id        = "arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/app/project-alb/0894784ed3f007aa" -> null
+    }
+
+  # aws_lb_target_group_attachment.albton_http_attachment will be destroyed
+  - resource "aws_lb_target_group_attachment" "albton_http_attachment" {
+      - id               = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929874500000001/8044a5856b447997-2022112623015372860000000e" -> null
+      - port             = 80 -> null
+      - target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929874500000001/8044a5856b447997" -> null
+      - target_id        = "arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/app/project-alb/0894784ed3f007aa" -> null
+    }
+
+  # aws_lb_target_group_attachment.masterto_a_api will be destroyed
+  - resource "aws_lb_target_group_attachment" "masterto_a_api" {
+      - id               = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb-2022112622595471330000000b" -> null
+      - port             = 30800 -> null
+      - target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb" -> null
+      - target_id        = "i-05b65954f5a5a70fa" -> null
+    }
+
+  # aws_lb_target_group_attachment.masterto_a_http will be destroyed
+  - resource "aws_lb_target_group_attachment" "masterto_a_http" {
+      - id               = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca-2022112622595462850000000a" -> null
+      - port             = 30400 -> null
+      - target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca" -> null
+      - target_id        = "i-05b65954f5a5a70fa" -> null
+    }
+
+  # aws_lb_target_group_attachment.worker1to_a_api will be destroyed
+  - resource "aws_lb_target_group_attachment" "worker1to_a_api" {
+      - id               = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb-20221126225954077700000008" -> null
+      - port             = 30800 -> null
+      - target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb" -> null
+      - target_id        = "i-0e65c7be72702a61e" -> null
+    }
+
+  # aws_lb_target_group_attachment.worker1to_a_http will be destroyed
+  - resource "aws_lb_target_group_attachment" "worker1to_a_http" {
+      - id               = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca-20221126225954162800000009" -> null
+      - port             = 30400 -> null
+      - target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca" -> null
+      - target_id        = "i-0e65c7be72702a61e" -> null
+    }
+
+  # aws_lb_target_group_attachment.worker2to_a_api will be destroyed
+  - resource "aws_lb_target_group_attachment" "worker2to_a_api" {
+      - id               = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb-2022112622595643180000000c" -> null
+      - port             = 30800 -> null
+      - target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb" -> null
+      - target_id        = "i-0e7b43f8e0a1f3adb" -> null
+    }
+
+  # aws_lb_target_group_attachment.worker2to_a_http will be destroyed
+  - resource "aws_lb_target_group_attachment" "worker2to_a_http" {
+      - id               = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca-2022112622595648610000000d" -> null
+      - port             = 30400 -> null
+      - target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca" -> null
+      - target_id        = "i-0e7b43f8e0a1f3adb" -> null
+    }
+
+  # aws_route_table.mainrouting will be destroyed
+  - resource "aws_route_table" "mainrouting" {
+      - arn              = "arn:aws:ec2:us-east-1:837789014863:route-table/rtb-0effc50920f4d0713" -> null
+      - id               = "rtb-0effc50920f4d0713" -> null
+      - owner_id         = "837789014863" -> null
+      - propagating_vgws = [] -> null
+      - route            = [
+          - {
+              - carrier_gateway_id         = ""
+              - cidr_block                 = "0.0.0.0/0"
+              - core_network_arn           = ""
+              - destination_prefix_list_id = ""
+              - egress_only_gateway_id     = ""
+              - gateway_id                 = "igw-001f68ffbee634378"
+              - instance_id                = ""
+              - ipv6_cidr_block            = ""
+              - local_gateway_id           = ""
+              - nat_gateway_id             = ""
+              - network_interface_id       = ""
+              - transit_gateway_id         = ""
+              - vpc_endpoint_id            = ""
+              - vpc_peering_connection_id  = ""
+            },
+        ] -> null
+      - tags             = {} -> null
+      - tags_all         = {} -> null
+      - vpc_id           = "vpc-096b05419aabb9540" -> null
+    }
+
+  # aws_route_table_association.public1 will be destroyed
+  - resource "aws_route_table_association" "public1" {
+      - id             = "rtbassoc-09ed55b5b6415f7a9" -> null
+      - route_table_id = "rtb-0effc50920f4d0713" -> null
+      - subnet_id      = "subnet-0f6446f237f4a5253" -> null
+    }
+
+  # aws_route_table_association.public2 will be destroyed
+  - resource "aws_route_table_association" "public2" {
+      - id             = "rtbassoc-05beecd8ab8b4ab9e" -> null
+      - route_table_id = "rtb-0effc50920f4d0713" -> null
+      - subnet_id      = "subnet-0f44d82956abbce3a" -> null
+    }
+
+  # aws_security_group.projectaccess will be destroyed
+  - resource "aws_security_group" "projectaccess" {
+      - arn                    = "arn:aws:ec2:us-east-1:837789014863:security-group/sg-01378f178de70e1e9" -> null
+      - description            = "Managed by Terraform" -> null
+      - egress                 = [
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - description      = ""
+              - from_port        = 0
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "-1"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 0
+            },
+        ] -> null
+      - id                     = "sg-01378f178de70e1e9" -> null
+      - ingress                = [
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - description      = ""
+              - from_port        = 22
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 22
+            },
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - description      = ""
+              - from_port        = 6443
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 6443
+            },
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - description      = ""
+              - from_port        = 8080
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 8080
+            },
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - description      = ""
+              - from_port        = 80
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 80
+            },
+          - {
+              - cidr_blocks      = [
+                  - "10.0.0.0/16",
+                ]
+              - description      = ""
+              - from_port        = 0
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "-1"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 0
+            },
+        ] -> null
+      - name                   = "projectnetrules" -> null
+      - owner_id               = "837789014863" -> null
+      - revoke_rules_on_delete = false -> null
+      - tags                   = {} -> null
+      - tags_all               = {} -> null
+      - vpc_id                 = "vpc-096b05419aabb9540" -> null
+    }
+
+  # aws_subnet.main1 will be destroyed
+  - resource "aws_subnet" "main1" {
+      - arn                                            = "arn:aws:ec2:us-east-1:837789014863:subnet/subnet-0f6446f237f4a5253" -> null
+      - assign_ipv6_address_on_creation                = false -> null
+      - availability_zone                              = "us-east-1a" -> null
+      - availability_zone_id                           = "use1-az6" -> null
+      - cidr_block                                     = "10.0.1.0/24" -> null
+      - enable_dns64                                   = false -> null
+      - enable_resource_name_dns_a_record_on_launch    = false -> null
+      - enable_resource_name_dns_aaaa_record_on_launch = false -> null
+      - id                                             = "subnet-0f6446f237f4a5253" -> null
+      - ipv6_native                                    = false -> null
+      - map_customer_owned_ip_on_launch                = false -> null
+      - map_public_ip_on_launch                        = false -> null
+      - owner_id                                       = "837789014863" -> null
+      - private_dns_hostname_type_on_launch            = "ip-name" -> null
+      - tags                                           = {} -> null
+      - tags_all                                       = {} -> null
+      - vpc_id                                         = "vpc-096b05419aabb9540" -> null
+    }
+
+  # aws_subnet.main2 will be destroyed
+  - resource "aws_subnet" "main2" {
+      - arn                                            = "arn:aws:ec2:us-east-1:837789014863:subnet/subnet-0f44d82956abbce3a" -> null
+      - assign_ipv6_address_on_creation                = false -> null
+      - availability_zone                              = "us-east-1b" -> null
+      - availability_zone_id                           = "use1-az1" -> null
+      - cidr_block                                     = "10.0.0.0/24" -> null
+      - enable_dns64                                   = false -> null
+      - enable_resource_name_dns_a_record_on_launch    = false -> null
+      - enable_resource_name_dns_aaaa_record_on_launch = false -> null
+      - id                                             = "subnet-0f44d82956abbce3a" -> null
+      - ipv6_native                                    = false -> null
+      - map_customer_owned_ip_on_launch                = false -> null
+      - map_public_ip_on_launch                        = false -> null
+      - owner_id                                       = "837789014863" -> null
+      - private_dns_hostname_type_on_launch            = "ip-name" -> null
+      - tags                                           = {} -> null
+      - tags_all                                       = {} -> null
+      - vpc_id                                         = "vpc-096b05419aabb9540" -> null
+    }
+
+  # aws_vpc.main will be destroyed
+  - resource "aws_vpc" "main" {
+      - arn                                  = "arn:aws:ec2:us-east-1:837789014863:vpc/vpc-096b05419aabb9540" -> null
+      - assign_generated_ipv6_cidr_block     = false -> null
+      - cidr_block                           = "10.0.0.0/16" -> null
+      - default_network_acl_id               = "acl-04ac65cedcae86b94" -> null
+      - default_route_table_id               = "rtb-057106ce422badfa6" -> null
+      - default_security_group_id            = "sg-049c58742dd111ca8" -> null
+      - dhcp_options_id                      = "dopt-042dbd90e6178e397" -> null
+      - enable_classiclink                   = false -> null
+      - enable_classiclink_dns_support       = false -> null
+      - enable_dns_hostnames                 = true -> null
+      - enable_dns_support                   = true -> null
+      - enable_network_address_usage_metrics = false -> null
+      - id                                   = "vpc-096b05419aabb9540" -> null
+      - instance_tenancy                     = "default" -> null
+      - ipv6_netmask_length                  = 0 -> null
+      - main_route_table_id                  = "rtb-057106ce422badfa6" -> null
+      - owner_id                             = "837789014863" -> null
+      - tags                                 = {} -> null
+      - tags_all                             = {} -> null
+    }
+
+  # null_resource.backup_etcd will be destroyed
+  - resource "null_resource" "backup_etcd" {
+      - id = "8880865779017746532" -> null
+    }
+
+  # null_resource.configure_hosts will be destroyed
+  - resource "null_resource" "configure_hosts" {
+      - id = "1844783689911191179" -> null
+    }
+
+  # null_resource.deploy_apps will be destroyed
+  - resource "null_resource" "deploy_apps" {
+      - id = "6668942683258586534" -> null
+    }
+
+  # null_resource.load_and_test_pod_user will be destroyed
+  - resource "null_resource" "load_and_test_pod_user" {
+      - id = "4009826962055282772" -> null
+    }
+
+  # null_resource.load_data will be destroyed
+  - resource "null_resource" "load_data" {
+      - id = "8749042035801561895" -> null
+    }
+
+  # null_resource.load_test will be destroyed
+  - resource "null_resource" "load_test" {
+      - id = "3428456281921602718" -> null
+    }
+
+  # null_resource.ready_kubernetes will be destroyed
+  - resource "null_resource" "ready_kubernetes" {
+      - id = "2901569142353776373" -> null
+    }
+
+  # null_resource.wait_for_webservices will be destroyed
+  - resource "null_resource" "wait_for_webservices" {
+      - id = "9038052300941907447" -> null
+    }
+
+Plan: 0 to add, 0 to change, 39 to destroy.
+
+Changes to Outputs:
+  - eip_ip            = "44.209.253.66" -> null
+  - master_ip         = "3.85.31.168" -> null
+  - master_private_ip = "10.0.1.240" -> null
+  - worker1_ip        = "54.92.153.2" -> null
+  - worker2_ip        = "50.17.136.174" -> null
+null_resource.backup_etcd: Destroying... [id=8880865779017746532]
+null_resource.backup_etcd: Destruction complete after 0s
+null_resource.load_and_test_pod_user: Destroying... [id=4009826962055282772]
+null_resource.load_and_test_pod_user: Destruction complete after 0s
+null_resource.load_test: Destroying... [id=3428456281921602718]
+null_resource.load_test: Destruction complete after 0s
+null_resource.load_data: Destroying... [id=8749042035801561895]
+null_resource.load_data: Destruction complete after 0s
+null_resource.wait_for_webservices: Destroying... [id=9038052300941907447]
+null_resource.wait_for_webservices: Destruction complete after 0s
+null_resource.deploy_apps: Destroying... [id=6668942683258586534]
+null_resource.deploy_apps: Destruction complete after 0s
+null_resource.ready_kubernetes: Destroying... [id=2901569142353776373]
+null_resource.ready_kubernetes: Destruction complete after 0s
+null_resource.configure_hosts: Destroying... [id=1844783689911191179]
+null_resource.configure_hosts: Destruction complete after 0s
+aws_route_table_association.public2: Destroying... [id=rtbassoc-05beecd8ab8b4ab9e]
+aws_lb_target_group_attachment.worker2to_a_http: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca-2022112622595648610000000d]
+aws_lb_target_group_attachment.albton_api_attachment: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929879200000002/f7befa1f48fa7f37-2022112623015375570000000f]
+aws_lb_target_group_attachment.worker1to_a_http: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca-20221126225954162800000009]
+aws_lb_target_group_attachment.albton_http_attachment: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929874500000001/8044a5856b447997-2022112623015372860000000e]
+aws_lb_target_group_attachment.masterto_a_api: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb-2022112622595471330000000b]
+aws_lb_target_group_attachment.worker1to_a_api: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb-20221126225954077700000008]
+aws_lb_listener.tcp_api: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/net/project-nlb/cafee7d47843f9be/47e3e6e5703e2ce2]
+aws_lb_target_group_attachment.worker2to_a_api: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb-2022112622595643180000000c]
+aws_lb_listener.tcp_http: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/net/project-nlb/cafee7d47843f9be/1929deba0c35fcc6]
+aws_lb_target_group_attachment.worker1to_a_api: Destruction complete after 0s
+aws_lb_target_group_attachment.worker1to_a_http: Destruction complete after 0s
+aws_route_table_association.public1: Destroying... [id=rtbassoc-09ed55b5b6415f7a9]
+aws_lb_target_group_attachment.masterto_a_http: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca-2022112622595462850000000a]
+aws_lb_target_group_attachment.albton_http_attachment: Destruction complete after 0s
+aws_instance.worker1: Destroying... [id=i-0e65c7be72702a61e]
+aws_lb_target_group_attachment.worker2to_a_api: Destruction complete after 0s
+aws_lb_listener.http: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/217729087ad3c714]
+aws_lb_target_group_attachment.albton_api_attachment: Destruction complete after 0s
+aws_lb_listener.api: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/d69285756ac14e3f]
+aws_lb_listener.tcp_http: Destruction complete after 0s
+aws_lb_target_group.n_http_tg: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929874500000001/8044a5856b447997]
+aws_lb_target_group_attachment.masterto_a_http: Destruction complete after 1s
+aws_route_table_association.public2: Destruction complete after 1s
+aws_lb_target_group.n_http_tg: Destruction complete after 1s
+aws_lb_target_group_attachment.worker2to_a_http: Destruction complete after 1s
+aws_instance.worker2: Destroying... [id=i-0e7b43f8e0a1f3adb]
+aws_lb_target_group_attachment.masterto_a_api: Destruction complete after 1s
+aws_instance.master: Destroying... [id=i-05b65954f5a5a70fa]
+aws_lb_listener.tcp_api: Destruction complete after 1s
+aws_lb_target_group.n_api_tg: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929879200000002/f7befa1f48fa7f37]
+aws_lb.nlb: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/net/project-nlb/cafee7d47843f9be]
+aws_route_table_association.public1: Destruction complete after 1s
+aws_route_table.mainrouting: Destroying... [id=rtb-0effc50920f4d0713]
+aws_lb_target_group.n_api_tg: Destruction complete after 0s
+aws_route_table.mainrouting: Destruction complete after 0s
+aws_instance.worker1: Still destroying... [id=i-0e65c7be72702a61e, 10s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 10s elapsed]
+aws_instance.master: Still destroying... [id=i-05b65954f5a5a70fa, 10s elapsed]
+aws_lb.nlb: Still destroying... [id=arn:aws:elasticloadbalancing:us-east-1:...ancer/net/project-nlb/cafee7d47843f9be, 10s elapsed]
+aws_instance.worker1: Still destroying... [id=i-0e65c7be72702a61e, 20s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 20s elapsed]
+aws_instance.master: Still destroying... [id=i-05b65954f5a5a70fa, 20s elapsed]
+aws_lb.nlb: Still destroying... [id=arn:aws:elasticloadbalancing:us-east-1:...ancer/net/project-nlb/cafee7d47843f9be, 20s elapsed]
+aws_instance.worker1: Still destroying... [id=i-0e65c7be72702a61e, 30s elapsed]
+aws_instance.master: Destruction complete after 30s
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 30s elapsed]
+aws_lb.nlb: Still destroying... [id=arn:aws:elasticloadbalancing:us-east-1:...ancer/net/project-nlb/cafee7d47843f9be, 30s elapsed]
+aws_instance.worker1: Still destroying... [id=i-0e65c7be72702a61e, 40s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 40s elapsed]
+aws_lb.nlb: Still destroying... [id=arn:aws:elasticloadbalancing:us-east-1:...ancer/net/project-nlb/cafee7d47843f9be, 40s elapsed]
+aws_lb.nlb: Destruction complete after 46s
+aws_eip.lbip: Destroying... [id=eipalloc-0de0b736f1d4d70a9]
+aws_eip.lbip: Destruction complete after 1s
+aws_instance.worker1: Still destroying... [id=i-0e65c7be72702a61e, 50s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 50s elapsed]
+aws_instance.worker1: Still destroying... [id=i-0e65c7be72702a61e, 1m0s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 1m0s elapsed]
+aws_instance.worker1: Still destroying... [id=i-0e65c7be72702a61e, 1m10s elapsed]
+aws_instance.worker1: Destruction complete after 1m10s
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 1m10s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 1m20s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 1m30s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 1m40s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 1m50s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 2m0s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 2m10s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 2m20s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 2m30s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 2m40s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 2m50s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 3m0s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 3m10s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 3m20s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 3m30s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 3m40s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 3m50s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 4m0s elapsed]
+aws_instance.worker2: Still destroying... [id=i-0e7b43f8e0a1f3adb, 4m10s elapsed]
+aws_instance.worker2: Destruction complete after 4m11s
+aws_internet_gateway.maingw: Destroying... [id=igw-001f68ffbee634378]
+aws_key_pair.login: Destroying... [id=login]
+aws_key_pair.login: Destruction complete after 0s
+aws_internet_gateway.maingw: Destruction complete after 0s
+╷
+│ Error: deleting Listener (arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/d69285756ac14e3f): ResourceInUse: Listener port '8080' is in use by registered target 'arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/app/project-alb/0894784ed3f007aa' and cannot be removed.
+│ 	status code: 400, request id: 84c03387-faa2-4ad9-88b9-7f4cf5a3ce97
+│ 
+│ 
+╵
+╷
+│ Error: deleting Listener (arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/217729087ad3c714): ResourceInUse: Listener port '80' is in use by registered target 'arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/app/project-alb/0894784ed3f007aa' and cannot be removed.
+│ 	status code: 400, request id: 37ac40b8-53b9-4875-a59f-ec36982adee5
+│ 
+│ 
+╵
+aws_vpc.main: Refreshing state... [id=vpc-096b05419aabb9540]
+aws_subnet.main1: Refreshing state... [id=subnet-0f6446f237f4a5253]
+aws_lb_target_group.a_api_tg: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb]
+aws_subnet.main2: Refreshing state... [id=subnet-0f44d82956abbce3a]
+aws_lb_target_group.a_http_tg: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca]
+aws_security_group.projectaccess: Refreshing state... [id=sg-01378f178de70e1e9]
+aws_lb.alb: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/app/project-alb/0894784ed3f007aa]
+aws_lb_listener.http: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/217729087ad3c714]
+aws_lb_listener.api: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/d69285756ac14e3f]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following
+symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # aws_lb.alb will be destroyed
+  - resource "aws_lb" "alb" {
+      - arn                              = "arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/app/project-alb/0894784ed3f007aa" -> null
+      - arn_suffix                       = "app/project-alb/0894784ed3f007aa" -> null
+      - desync_mitigation_mode           = "defensive" -> null
+      - dns_name                         = "internal-project-alb-202310491.us-east-1.elb.amazonaws.com" -> null
+      - drop_invalid_header_fields       = false -> null
+      - enable_cross_zone_load_balancing = true -> null
+      - enable_deletion_protection       = false -> null
+      - enable_http2                     = true -> null
+      - enable_waf_fail_open             = false -> null
+      - id                               = "arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/app/project-alb/0894784ed3f007aa" -> null
+      - idle_timeout                     = 60 -> null
+      - internal                         = true -> null
+      - ip_address_type                  = "ipv4" -> null
+      - load_balancer_type               = "application" -> null
+      - name                             = "project-alb" -> null
+      - preserve_host_header             = false -> null
+      - security_groups                  = [
+          - "sg-01378f178de70e1e9",
+        ] -> null
+      - subnets                          = [
+          - "subnet-0f44d82956abbce3a",
+          - "subnet-0f6446f237f4a5253",
+        ] -> null
+      - tags                             = {} -> null
+      - tags_all                         = {} -> null
+      - vpc_id                           = "vpc-096b05419aabb9540" -> null
+      - zone_id                          = "Z35SXDOTRQ7X7K" -> null
+
+      - access_logs {
+          - enabled = false -> null
+        }
+
+      - subnet_mapping {
+          - subnet_id = "subnet-0f44d82956abbce3a" -> null
+        }
+      - subnet_mapping {
+          - subnet_id = "subnet-0f6446f237f4a5253" -> null
+        }
+    }
+
+  # aws_lb_listener.api will be destroyed
+  - resource "aws_lb_listener" "api" {
+      - arn               = "arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/d69285756ac14e3f" -> null
+      - id                = "arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/d69285756ac14e3f" -> null
+      - load_balancer_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/app/project-alb/0894784ed3f007aa" -> null
+      - port              = 8080 -> null
+      - protocol          = "HTTP" -> null
+      - tags              = {} -> null
+      - tags_all          = {} -> null
+
+      - default_action {
+          - order            = 1 -> null
+          - target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb" -> null
+          - type             = "forward" -> null
+        }
+    }
+
+  # aws_lb_listener.http will be destroyed
+  - resource "aws_lb_listener" "http" {
+      - arn               = "arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/217729087ad3c714" -> null
+      - id                = "arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/217729087ad3c714" -> null
+      - load_balancer_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/app/project-alb/0894784ed3f007aa" -> null
+      - port              = 80 -> null
+      - protocol          = "HTTP" -> null
+      - tags              = {} -> null
+      - tags_all          = {} -> null
+
+      - default_action {
+          - order            = 1 -> null
+          - target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca" -> null
+          - type             = "forward" -> null
+        }
+    }
+
+  # aws_lb_target_group.a_api_tg will be destroyed
+  - resource "aws_lb_target_group" "a_api_tg" {
+      - arn                                = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb" -> null
+      - arn_suffix                         = "targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb" -> null
+      - connection_termination             = false -> null
+      - deregistration_delay               = "300" -> null
+      - id                                 = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb" -> null
+      - ip_address_type                    = "ipv4" -> null
+      - lambda_multi_value_headers_enabled = false -> null
+      - load_balancing_algorithm_type      = "round_robin" -> null
+      - name                               = "tf-20221126225929884800000003" -> null
+      - port                               = 8080 -> null
+      - protocol                           = "HTTP" -> null
+      - protocol_version                   = "HTTP1" -> null
+      - proxy_protocol_v2                  = false -> null
+      - slow_start                         = 0 -> null
+      - tags                               = {} -> null
+      - tags_all                           = {} -> null
+      - target_type                        = "instance" -> null
+      - vpc_id                             = "vpc-096b05419aabb9540" -> null
+
+      - health_check {
+          - enabled             = true -> null
+          - healthy_threshold   = 5 -> null
+          - interval            = 30 -> null
+          - matcher             = "200" -> null
+          - path                = "/" -> null
+          - port                = "traffic-port" -> null
+          - protocol            = "HTTP" -> null
+          - timeout             = 5 -> null
+          - unhealthy_threshold = 2 -> null
+        }
+
+      - stickiness {
+          - cookie_duration = 86400 -> null
+          - enabled         = false -> null
+          - type            = "lb_cookie" -> null
+        }
+
+      - target_failover {}
+    }
+
+  # aws_lb_target_group.a_http_tg will be destroyed
+  - resource "aws_lb_target_group" "a_http_tg" {
+      - arn                                = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca" -> null
+      - arn_suffix                         = "targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca" -> null
+      - connection_termination             = false -> null
+      - deregistration_delay               = "300" -> null
+      - id                                 = "arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca" -> null
+      - ip_address_type                    = "ipv4" -> null
+      - lambda_multi_value_headers_enabled = false -> null
+      - load_balancing_algorithm_type      = "round_robin" -> null
+      - name                               = "tf-20221126225929895000000004" -> null
+      - port                               = 80 -> null
+      - protocol                           = "HTTP" -> null
+      - protocol_version                   = "HTTP1" -> null
+      - proxy_protocol_v2                  = false -> null
+      - slow_start                         = 0 -> null
+      - tags                               = {} -> null
+      - tags_all                           = {} -> null
+      - target_type                        = "instance" -> null
+      - vpc_id                             = "vpc-096b05419aabb9540" -> null
+
+      - health_check {
+          - enabled             = true -> null
+          - healthy_threshold   = 5 -> null
+          - interval            = 30 -> null
+          - matcher             = "200" -> null
+          - path                = "/" -> null
+          - port                = "traffic-port" -> null
+          - protocol            = "HTTP" -> null
+          - timeout             = 5 -> null
+          - unhealthy_threshold = 2 -> null
+        }
+
+      - stickiness {
+          - cookie_duration = 86400 -> null
+          - enabled         = false -> null
+          - type            = "lb_cookie" -> null
+        }
+
+      - target_failover {}
+    }
+
+  # aws_security_group.projectaccess will be destroyed
+  - resource "aws_security_group" "projectaccess" {
+      - arn                    = "arn:aws:ec2:us-east-1:837789014863:security-group/sg-01378f178de70e1e9" -> null
+      - description            = "Managed by Terraform" -> null
+      - egress                 = [
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - description      = ""
+              - from_port        = 0
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "-1"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 0
+            },
+        ] -> null
+      - id                     = "sg-01378f178de70e1e9" -> null
+      - ingress                = [
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - description      = ""
+              - from_port        = 22
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 22
+            },
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - description      = ""
+              - from_port        = 6443
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 6443
+            },
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - description      = ""
+              - from_port        = 8080
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 8080
+            },
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - description      = ""
+              - from_port        = 80
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 80
+            },
+          - {
+              - cidr_blocks      = [
+                  - "10.0.0.0/16",
+                ]
+              - description      = ""
+              - from_port        = 0
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "-1"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 0
+            },
+        ] -> null
+      - name                   = "projectnetrules" -> null
+      - owner_id               = "837789014863" -> null
+      - revoke_rules_on_delete = false -> null
+      - tags                   = {} -> null
+      - tags_all               = {} -> null
+      - vpc_id                 = "vpc-096b05419aabb9540" -> null
+    }
+
+  # aws_subnet.main1 will be destroyed
+  - resource "aws_subnet" "main1" {
+      - arn                                            = "arn:aws:ec2:us-east-1:837789014863:subnet/subnet-0f6446f237f4a5253" -> null
+      - assign_ipv6_address_on_creation                = false -> null
+      - availability_zone                              = "us-east-1a" -> null
+      - availability_zone_id                           = "use1-az6" -> null
+      - cidr_block                                     = "10.0.1.0/24" -> null
+      - enable_dns64                                   = false -> null
+      - enable_resource_name_dns_a_record_on_launch    = false -> null
+      - enable_resource_name_dns_aaaa_record_on_launch = false -> null
+      - id                                             = "subnet-0f6446f237f4a5253" -> null
+      - ipv6_native                                    = false -> null
+      - map_customer_owned_ip_on_launch                = false -> null
+      - map_public_ip_on_launch                        = false -> null
+      - owner_id                                       = "837789014863" -> null
+      - private_dns_hostname_type_on_launch            = "ip-name" -> null
+      - tags                                           = {} -> null
+      - tags_all                                       = {} -> null
+      - vpc_id                                         = "vpc-096b05419aabb9540" -> null
+    }
+
+  # aws_subnet.main2 will be destroyed
+  - resource "aws_subnet" "main2" {
+      - arn                                            = "arn:aws:ec2:us-east-1:837789014863:subnet/subnet-0f44d82956abbce3a" -> null
+      - assign_ipv6_address_on_creation                = false -> null
+      - availability_zone                              = "us-east-1b" -> null
+      - availability_zone_id                           = "use1-az1" -> null
+      - cidr_block                                     = "10.0.0.0/24" -> null
+      - enable_dns64                                   = false -> null
+      - enable_resource_name_dns_a_record_on_launch    = false -> null
+      - enable_resource_name_dns_aaaa_record_on_launch = false -> null
+      - id                                             = "subnet-0f44d82956abbce3a" -> null
+      - ipv6_native                                    = false -> null
+      - map_customer_owned_ip_on_launch                = false -> null
+      - map_public_ip_on_launch                        = false -> null
+      - owner_id                                       = "837789014863" -> null
+      - private_dns_hostname_type_on_launch            = "ip-name" -> null
+      - tags                                           = {} -> null
+      - tags_all                                       = {} -> null
+      - vpc_id                                         = "vpc-096b05419aabb9540" -> null
+    }
+
+  # aws_vpc.main will be destroyed
+  - resource "aws_vpc" "main" {
+      - arn                                  = "arn:aws:ec2:us-east-1:837789014863:vpc/vpc-096b05419aabb9540" -> null
+      - assign_generated_ipv6_cidr_block     = false -> null
+      - cidr_block                           = "10.0.0.0/16" -> null
+      - default_network_acl_id               = "acl-04ac65cedcae86b94" -> null
+      - default_route_table_id               = "rtb-057106ce422badfa6" -> null
+      - default_security_group_id            = "sg-049c58742dd111ca8" -> null
+      - dhcp_options_id                      = "dopt-042dbd90e6178e397" -> null
+      - enable_classiclink                   = false -> null
+      - enable_classiclink_dns_support       = false -> null
+      - enable_dns_hostnames                 = true -> null
+      - enable_dns_support                   = true -> null
+      - enable_network_address_usage_metrics = false -> null
+      - id                                   = "vpc-096b05419aabb9540" -> null
+      - instance_tenancy                     = "default" -> null
+      - ipv6_netmask_length                  = 0 -> null
+      - main_route_table_id                  = "rtb-057106ce422badfa6" -> null
+      - owner_id                             = "837789014863" -> null
+      - tags                                 = {} -> null
+      - tags_all                             = {} -> null
+    }
+
+Plan: 0 to add, 0 to change, 9 to destroy.
+
+Changes to Outputs:
+  - master_private_ip = "10.0.1.240" -> null
+aws_lb_listener.http: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/217729087ad3c714]
+aws_lb_listener.api: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/d69285756ac14e3f]
+aws_lb_listener.http: Destruction complete after 0s
+aws_lb_listener.api: Destruction complete after 0s
+aws_lb.alb: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/app/project-alb/0894784ed3f007aa]
+aws_lb_target_group.a_http_tg: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca]
+aws_lb_target_group.a_api_tg: Destroying... [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb]
+aws_lb_target_group.a_http_tg: Destruction complete after 0s
+aws_lb_target_group.a_api_tg: Destruction complete after 0s
+aws_lb.alb: Destruction complete after 1s
+aws_subnet.main2: Destroying... [id=subnet-0f44d82956abbce3a]
+aws_subnet.main1: Destroying... [id=subnet-0f6446f237f4a5253]
+aws_security_group.projectaccess: Destroying... [id=sg-01378f178de70e1e9]
+aws_subnet.main1: Destruction complete after 9s
+aws_subnet.main2: Still destroying... [id=subnet-0f44d82956abbce3a, 10s elapsed]
+aws_security_group.projectaccess: Still destroying... [id=sg-01378f178de70e1e9, 10s elapsed]
+aws_subnet.main2: Destruction complete after 17s
+aws_security_group.projectaccess: Destruction complete after 18s
+aws_vpc.main: Destroying... [id=vpc-096b05419aabb9540]
+aws_vpc.main: Destruction complete after 1s
+
+Destroy complete! Resources: 9 destroyed.
+alexanderwehrpr@ip-172-31-16-69:~/project1$ 
