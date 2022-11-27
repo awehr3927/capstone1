@@ -1,0 +1,15 @@
+~/capstone1$ kubectl exec -i --tty aewehr-api-deployment-9d969c664-pb5jb /bin/sh
+kubectl exec [POD] [COMMAND] is DEPRECATED and will be removed in a future version. Use kubectl exec [POD] -- [COMMAND] instead.
+/ # nc -vz mysql 3306
+mysql (10.107.135.23:3306) open
+/ #exit 
+
+alexanderwehrpr@ip-172-31-16-69:~/capstone1$ kubectl exec -i --tty frontend-deployment-5f84cdb6f6-zx24j /bin/sh
+kubectl exec [POD] [COMMAND] is DEPRECATED and will be removed in a future version. Use kubectl exec [POD] -- [COMMAND] instead.
+# time curl -vv telnet://mysql:3306
+/bin/sh: 1: time: not found
+# curl -vv telnet://mysql:3306
+*   Trying 10.107.135.23:3306...
+^C
+# exit    
+

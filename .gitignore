@@ -1,6 +1,10 @@
 # myhosts
 myhosts
 .terraform.lock.hcl
+terraform_key
+terraform_key.pub
+sed.sh
+k8s-metrics-server.patch.yaml
 # Local .terraform directories
 **/.terraform/*
 
