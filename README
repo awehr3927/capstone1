@@ -1,7 +1,8 @@
 This is a repository for terrraform code that does the following:
 1 -  deploys a 3-node kubernetes cluster on AWS EC2 t3.small vm's running Ubuntu 20.04 LTS
 2 -  defines an elastic ip, a connected network load balancer, and an application load balancer providing public access on port 80 and 8080 on that elastic ip
-3 -  deploys a rudimentary web application consisting of a back-end database, an API layer, and a standard web layer reverse proxy to read the API layer out to users. (for access and use, see "Accessing The Built Deployment" on this reamde) 
+3 -  sets up .kube/config to allow administration of the kubernetes cluster from the deployment machine
+4 -  utilizes kubectl to deploy a rudimentary web application consisting of a back-end database, an API layer, and a standard web layer reverse proxy to read the API layer out to users. (for access and use, see "Accessing The Built Deployment" on this reamde) 
 
 Requirements for this AWS depoyment:
 
