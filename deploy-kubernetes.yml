@@ -1,0 +1,124 @@
+- name: Deploy Kubernetes Nodes
+  hosts: all
+  become: true
+  become_method: sudo
+  vars:
+    master_ip: 10.0.1.240
+  tasks:
+          #  - name: Print all available facts
+          #    debug:
+          #      var: ansible_facts
+  - name: update apt
+    apt:
+       update_cache: True
+  - name: swap off
+    shell: sudo sed -i '/ swap / s/^/#/' /etc/fstab; swapoff -a
+  - name: install base support packages
+    apt:
+       name: '{{ item }}'
+       state: latest
+    with_items:
+        - apt-transport-https 
+        - ca-certificates
+        - gnupg2 
+        - software-properties-common
+        - curl
+        - git
+        - wget
+        - golang
+        - nfs-kernel-server
+        - nfs-common
+  - name: install apt keys for docker and kubernetes
+    apt_key:
+       url: '{{ item }} '
+       state: present
+    with_items:
+        - https://download.docker.com/linux/ubuntu/gpg
+        - https://packages.cloud.google.com/apt/doc/apt-key.gpg
+  - name: install apt repos for docker and kubernetes
+    apt_repository:
+       repo: '{{ item }}'
+       state: present
+    with_items:
+        - deb https://apt.kubernetes.io/ kubernetes-xenial main
+        - deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_facts.distribution_release }} stable
+  - name: update new apt repos
+    apt:
+       update_cache: True
+  - name: install docker and kubernetes packages
+    apt:
+       name: '{{ item }}'
+       state: latest
+    with_items:
+        - containerd.io
+        - docker-ce
+        - docker-ce-cli 
+        - docker-compose-plugin
+        - kubelet
+        - kubeadm 
+        - kubectl
+        - etcd-client
+  - name: apt-mark hold kubernetes packages
+    dpkg_selections:
+       name: '{{ item }}'
+       selection: hold
+    with_items:
+        - kubelet
+        - kubeadm
+        - kubectl
+  - name: modprobe network items
+    modprobe:
+       name: '{{ item }}'
+       state: present
+    with_items:
+        - overlay
+        - br_netfilter
+  - name: set sysctl for kubernetes
+    sysctl:
+       name: '{{ item }}'
+       value: '1'
+       sysctl_file: /etc/sysctl.d/99-kubernetes.conf
+       reload: yes
+    with_items:
+        - net.bridge.bridge-nf-call-ip6tables
+        - net.bridge.bridge-nf-call-iptables
+        - net.ipv4.ip_forward
+
+  - name: copy daemon config for docker
+    copy:
+       src: ./daemon.json
+       dest: /etc/docker
+       owner: root
+       group: root
+       mode: 0644
+  - name: copy module config for containerd
+    copy:
+       src: ./containerd.conf
+       dest: /etc/modules-load.d
+       owner: root
+       group: root
+       mode: 0644
+  - name: reconfigure containerd
+    shell: mkdir -p /etc/containerd; containerd config default>/etc/containerd/config.toml;
+  - name: restart and enable docker and containerd
+    systemd:
+       name: '{{ item }}'
+       daemon-reload: yes
+       enabled: yes
+       state: restarted
+    with_items:
+        - containerd
+        - docker
+  # cri-dockerd is required for kubeadm to work with kubernetes 1.24+
+  - name: install cri-dockerd
+    apt:
+       deb: https://github.com/Mirantis/cri-dockerd/releases/download/v0.2.6/cri-dockerd_0.2.6.3-0.ubuntu-focal_amd64.deb
+       state: present
+  # cri-dockerd enable and start
+  - name: start and enable cri-docker
+    systemd:
+       name: cri-docker.service
+       enabled: yes
+       state: restarted
+  - name: hold 20s
+    shell: sleep 20;

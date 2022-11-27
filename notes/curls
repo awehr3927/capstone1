@@ -1,0 +1,2 @@
+ 1358  curl localhost:8080/demo/add -d name=first -d transaction=6.45
+ 1359  curl localhost:8080/demo/all

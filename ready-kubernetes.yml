@@ -1,0 +1,46 @@
+- name: Ready Kubernetes Master
+  hosts: masters
+  become: true
+  become_method: sudo
+  tasks:
+  - name: define NFS export for mydbdata
+    shell: mkdir -p /mydbdata;echo '/mydbdata *(rw,sync,no_root_squash)' > /etc/exports
+  - name: start and enable nfs-server
+    systemd:
+       name: nfs-server.service
+       enabled: yes
+       state: restarted
+  - name: init cluster
+    script: ./init_cluster.sh
+    register: cluster_init_output
+  - name: create join script
+    shell: echo "if [ -f /etc/kubernetes/kubelet.conf ]; then exit 0; else {{cluster_init_output.stdout_lines[0]}} --cri-socket /run/cri-dockerd.sock --ignore-preflight-errors=Mem; fi" > /tmp/init_worker.sh
+    delegate_to: localhost
+    when: cluster_init_output.stdout_lines[0] is defined
+  - name: fetch kube config
+    fetch:
+      src: /etc/kubernetes/admin.conf
+      dest: ~/.kube/config
+      flat: yes
+      fail_on_missing: yes
+  - name: tweak kube config
+    become: false
+    script: ./sed.sh
+    delegate_to: localhost
+- name: Join Kubernetes Workers
+  hosts: workers
+  become: true
+  become_method: sudo
+  tasks:
+  - name: init worker
+    script: /tmp/init_worker.sh
+- name: Ready Additional Core Overlays
+  hosts: localhost
+  become: false
+  tasks:
+  - name: wait a moment for kube-system
+    shell: sleep 10
+  - name: setup weave
+    shell: ./setup_weave.sh
+  - name: setup metrics
+    shell: ./setup_metrics.sh

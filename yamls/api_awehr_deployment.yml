@@ -1,0 +1,26 @@
+apiVersion: apps/v1      
+kind: Deployment
+metadata:
+  name: aewehr-api-deployment
+spec:
+  selector:
+    matchLabels:
+      app: aewehr-api
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: aewehr-api
+    spec:
+     containers:
+     - name: db-app
+       image: docker.io/aewehr3927/project1-db-app
+       ports:
+       - containerPort: 8080
+       resources:
+         requests:
+           cpu: 200m
+     initContainers:
+     - name: init-api
+       image: busybox
+       command: ['sh', '-c', 'until echo quit | timeout -s 9 2 telnet mysql 3306 ; do echo "waiting for mysql to come up"; sleep 2; done;']

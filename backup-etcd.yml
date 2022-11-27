@@ -1,0 +1,10 @@
+- name: Backup Etcd On Master
+  hosts: masters
+  become: true
+  become_method: sudo
+  tasks:
+  - name: backup_etcd
+    script: ./backup_etcd.sh
+    register: backup_etcd_output
+  - debug:
+      var: backup_etcd_output.stdout_lines[0]

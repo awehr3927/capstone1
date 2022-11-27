@@ -1,0 +1,39 @@
+alexanderwehrpr@ip-172-31-16-69:~/project1$ kubectl get pods
+NAME                                    READY   STATUS    RESTARTS   AGE
+aewehr-api-deployment-9d969c664-29rgz   1/1     Running   0          18m
+frontend-deployment-5f84cdb6f6-dv7b6    1/1     Running   0          14m
+load-generator                          1/1     Running   0          18m
+sqldeployment-d7c66775c-mxwqk           1/1     Running   0          35m
+alexanderwehrpr@ip-172-31-16-69:~/project1$ kubectl get hpa
+NAME                    REFERENCE                          TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+aewehr-api-autoscaler   Deployment/aewehr-api-deployment   0%/50%    1         3         1          36m
+frontend-autoscaler     Deployment/frontend-deployment     0%/50%    1         3         1          36m
+
+~/project1$ kubectl run -i --tty load-generator --image=busybox /bin/sh
+/ # while true; do wget -q -O- http://frontend-svc; done
+
+alexanderwehrpr@ip-172-31-16-69:~/project1$ kubectl get hpa
+NAME                    REFERENCE                          TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+aewehr-api-autoscaler   Deployment/aewehr-api-deployment   94%/50%   1         3         1          36m
+frontend-autoscaler     Deployment/frontend-deployment     87%/50%   1         3         1          36m
+alexanderwehrpr@ip-172-31-16-69:~/project1$ kubectl get pods
+NAME                                    READY   STATUS    RESTARTS   AGE
+aewehr-api-deployment-9d969c664-29rgz   1/1     Running   0          19m
+aewehr-api-deployment-9d969c664-sfww9   1/1     Running   0          6s
+frontend-deployment-5f84cdb6f6-dv7b6    1/1     Running   0          14m
+frontend-deployment-5f84cdb6f6-ww72f    1/1     Running   0          6s
+load-generator                          1/1     Running   0          19m
+sqldeployment-d7c66775c-mxwqk           1/1     Running   0          36m
+alexanderwehrpr@ip-172-31-16-69:~/project1$ kubectl get hpa
+NAME                    REFERENCE                          TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
+aewehr-api-autoscaler   Deployment/aewehr-api-deployment   237%/50%   1         3         3          36m
+frontend-autoscaler     Deployment/frontend-deployment     26%/50%    1         3         2          36m
+NAME                                    READY   STATUS    RESTARTS   AGE
+aewehr-api-deployment-9d969c664-29rgz   1/1     Running   0          20m
+aewehr-api-deployment-9d969c664-nq9vg   1/1     Running   0          35s
+aewehr-api-deployment-9d969c664-sfww9   1/1     Running   0          50s
+frontend-deployment-5f84cdb6f6-dv7b6    1/1     Running   0          15m
+frontend-deployment-5f84cdb6f6-ww72f    1/1     Running   0          50s
+load-generator                          1/1     Running   0          20m
+sqldeployment-d7c66775c-mxwqk           1/1     Running   0          37m
+alexanderwehrpr@ip-172-31-16-69:~/project1$

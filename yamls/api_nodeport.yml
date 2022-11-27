@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: aewehr-api-svc
+spec:
+  selector:
+    app: aewehr-api
+  ports:
+    - nodePort: 30800
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: NodePort

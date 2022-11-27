@@ -1,0 +1,1877 @@
+alexanderwehrpr@ip-172-31-16-69:~/project1$ terraform apply --auto-approve
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following
+symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_eip.lbip will be created
+  + resource "aws_eip" "lbip" {
+      + allocation_id        = (known after apply)
+      + association_id       = (known after apply)
+      + carrier_ip           = (known after apply)
+      + customer_owned_ip    = (known after apply)
+      + domain               = (known after apply)
+      + id                   = (known after apply)
+      + instance             = (known after apply)
+      + network_border_group = (known after apply)
+      + network_interface    = (known after apply)
+      + private_dns          = (known after apply)
+      + private_ip           = (known after apply)
+      + public_dns           = (known after apply)
+      + public_ip            = (known after apply)
+      + public_ipv4_pool     = (known after apply)
+      + tags_all             = (known after apply)
+      + vpc                  = true
+    }
+
+  # aws_instance.master will be created
+  + resource "aws_instance" "master" {
+      + ami                                  = "ami-0149b2da6ceec4bb0"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = true
+      + availability_zone                    = (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      + disable_api_stop                     = (known after apply)
+      + disable_api_termination              = (known after apply)
+      + ebs_optimized                        = (known after apply)
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + host_resource_group_arn              = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = (known after apply)
+      + instance_state                       = (known after apply)
+      + instance_type                        = "t3.small"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = "login"
+      + monitoring                           = (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = "10.0.1.240"
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = (known after apply)
+      + source_dest_check                    = true
+      + subnet_id                            = (known after apply)
+      + tags                                 = {
+          + "Name" = "kubernetes-master"
+        }
+      + tags_all                             = {
+          + "Name" = "kubernetes-master"
+        }
+      + tenancy                              = (known after apply)
+      + user_data                            = (known after apply)
+      + user_data_base64                     = (known after apply)
+      + user_data_replace_on_change          = false
+      + vpc_security_group_ids               = (known after apply)
+
+      + capacity_reservation_specification {
+          + capacity_reservation_preference = (known after apply)
+
+          + capacity_reservation_target {
+              + capacity_reservation_id                 = (known after apply)
+              + capacity_reservation_resource_group_arn = (known after apply)
+            }
+        }
+
+      + ebs_block_device {
+          + delete_on_termination = (known after apply)
+          + device_name           = (known after apply)
+          + encrypted             = (known after apply)
+          + iops                  = (known after apply)
+          + kms_key_id            = (known after apply)
+          + snapshot_id           = (known after apply)
+          + tags                  = (known after apply)
+          + throughput            = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = (known after apply)
+          + volume_type           = (known after apply)
+        }
+
+      + enclave_options {
+          + enabled = (known after apply)
+        }
+
+      + ephemeral_block_device {
+          + device_name  = (known after apply)
+          + no_device    = (known after apply)
+          + virtual_name = (known after apply)
+        }
+
+      + maintenance_options {
+          + auto_recovery = (known after apply)
+        }
+
+      + metadata_options {
+          + http_endpoint               = (known after apply)
+          + http_put_response_hop_limit = (known after apply)
+          + http_tokens                 = (known after apply)
+          + instance_metadata_tags      = (known after apply)
+        }
+
+      + network_interface {
+          + delete_on_termination = (known after apply)
+          + device_index          = (known after apply)
+          + network_card_index    = (known after apply)
+          + network_interface_id  = (known after apply)
+        }
+
+      + private_dns_name_options {
+          + enable_resource_name_dns_a_record    = (known after apply)
+          + enable_resource_name_dns_aaaa_record = (known after apply)
+          + hostname_type                        = (known after apply)
+        }
+
+      + root_block_device {
+          + delete_on_termination = (known after apply)
+          + device_name           = (known after apply)
+          + encrypted             = (known after apply)
+          + iops                  = (known after apply)
+          + kms_key_id            = (known after apply)
+          + tags                  = (known after apply)
+          + throughput            = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = (known after apply)
+          + volume_type           = (known after apply)
+        }
+    }
+
+  # aws_instance.worker1 will be created
+  + resource "aws_instance" "worker1" {
+      + ami                                  = "ami-0149b2da6ceec4bb0"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = true
+      + availability_zone                    = (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      + disable_api_stop                     = (known after apply)
+      + disable_api_termination              = (known after apply)
+      + ebs_optimized                        = (known after apply)
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + host_resource_group_arn              = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = (known after apply)
+      + instance_state                       = (known after apply)
+      + instance_type                        = "t3.small"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = "login"
+      + monitoring                           = (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = (known after apply)
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = (known after apply)
+      + source_dest_check                    = true
+      + subnet_id                            = (known after apply)
+      + tags                                 = {
+          + "Name" = "kubernetes-worker1"
+        }
+      + tags_all                             = {
+          + "Name" = "kubernetes-worker1"
+        }
+      + tenancy                              = (known after apply)
+      + user_data                            = (known after apply)
+      + user_data_base64                     = (known after apply)
+      + user_data_replace_on_change          = false
+      + vpc_security_group_ids               = (known after apply)
+
+      + capacity_reservation_specification {
+          + capacity_reservation_preference = (known after apply)
+
+          + capacity_reservation_target {
+              + capacity_reservation_id                 = (known after apply)
+              + capacity_reservation_resource_group_arn = (known after apply)
+            }
+        }
+
+      + ebs_block_device {
+          + delete_on_termination = (known after apply)
+          + device_name           = (known after apply)
+          + encrypted             = (known after apply)
+          + iops                  = (known after apply)
+          + kms_key_id            = (known after apply)
+          + snapshot_id           = (known after apply)
+          + tags                  = (known after apply)
+          + throughput            = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = (known after apply)
+          + volume_type           = (known after apply)
+        }
+
+      + enclave_options {
+          + enabled = (known after apply)
+        }
+
+      + ephemeral_block_device {
+          + device_name  = (known after apply)
+          + no_device    = (known after apply)
+          + virtual_name = (known after apply)
+        }
+
+      + maintenance_options {
+          + auto_recovery = (known after apply)
+        }
+
+      + metadata_options {
+          + http_endpoint               = (known after apply)
+          + http_put_response_hop_limit = (known after apply)
+          + http_tokens                 = (known after apply)
+          + instance_metadata_tags      = (known after apply)
+        }
+
+      + network_interface {
+          + delete_on_termination = (known after apply)
+          + device_index          = (known after apply)
+          + network_card_index    = (known after apply)
+          + network_interface_id  = (known after apply)
+        }
+
+      + private_dns_name_options {
+          + enable_resource_name_dns_a_record    = (known after apply)
+          + enable_resource_name_dns_aaaa_record = (known after apply)
+          + hostname_type                        = (known after apply)
+        }
+
+      + root_block_device {
+          + delete_on_termination = (known after apply)
+          + device_name           = (known after apply)
+          + encrypted             = (known after apply)
+          + iops                  = (known after apply)
+          + kms_key_id            = (known after apply)
+          + tags                  = (known after apply)
+          + throughput            = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = (known after apply)
+          + volume_type           = (known after apply)
+        }
+    }
+
+  # aws_instance.worker2 will be created
+  + resource "aws_instance" "worker2" {
+      + ami                                  = "ami-0149b2da6ceec4bb0"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = true
+      + availability_zone                    = (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      + disable_api_stop                     = (known after apply)
+      + disable_api_termination              = (known after apply)
+      + ebs_optimized                        = (known after apply)
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + host_resource_group_arn              = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = (known after apply)
+      + instance_state                       = (known after apply)
+      + instance_type                        = "t3.small"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = "login"
+      + monitoring                           = (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = (known after apply)
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = (known after apply)
+      + source_dest_check                    = true
+      + subnet_id                            = (known after apply)
+      + tags                                 = {
+          + "Name" = "kubernetes-worker2"
+        }
+      + tags_all                             = {
+          + "Name" = "kubernetes-worker2"
+        }
+      + tenancy                              = (known after apply)
+      + user_data                            = (known after apply)
+      + user_data_base64                     = (known after apply)
+      + user_data_replace_on_change          = false
+      + vpc_security_group_ids               = (known after apply)
+
+      + capacity_reservation_specification {
+          + capacity_reservation_preference = (known after apply)
+
+          + capacity_reservation_target {
+              + capacity_reservation_id                 = (known after apply)
+              + capacity_reservation_resource_group_arn = (known after apply)
+            }
+        }
+
+      + ebs_block_device {
+          + delete_on_termination = (known after apply)
+          + device_name           = (known after apply)
+          + encrypted             = (known after apply)
+          + iops                  = (known after apply)
+          + kms_key_id            = (known after apply)
+          + snapshot_id           = (known after apply)
+          + tags                  = (known after apply)
+          + throughput            = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = (known after apply)
+          + volume_type           = (known after apply)
+        }
+
+      + enclave_options {
+          + enabled = (known after apply)
+        }
+
+      + ephemeral_block_device {
+          + device_name  = (known after apply)
+          + no_device    = (known after apply)
+          + virtual_name = (known after apply)
+        }
+
+      + maintenance_options {
+          + auto_recovery = (known after apply)
+        }
+
+      + metadata_options {
+          + http_endpoint               = (known after apply)
+          + http_put_response_hop_limit = (known after apply)
+          + http_tokens                 = (known after apply)
+          + instance_metadata_tags      = (known after apply)
+        }
+
+      + network_interface {
+          + delete_on_termination = (known after apply)
+          + device_index          = (known after apply)
+          + network_card_index    = (known after apply)
+          + network_interface_id  = (known after apply)
+        }
+
+      + private_dns_name_options {
+          + enable_resource_name_dns_a_record    = (known after apply)
+          + enable_resource_name_dns_aaaa_record = (known after apply)
+          + hostname_type                        = (known after apply)
+        }
+
+      + root_block_device {
+          + delete_on_termination = (known after apply)
+          + device_name           = (known after apply)
+          + encrypted             = (known after apply)
+          + iops                  = (known after apply)
+          + kms_key_id            = (known after apply)
+          + tags                  = (known after apply)
+          + throughput            = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = (known after apply)
+          + volume_type           = (known after apply)
+        }
+    }
+
+  # aws_internet_gateway.maingw will be created
+  + resource "aws_internet_gateway" "maingw" {
+      + arn      = (known after apply)
+      + id       = (known after apply)
+      + owner_id = (known after apply)
+      + tags_all = (known after apply)
+      + vpc_id   = (known after apply)
+    }
+
+  # aws_key_pair.login will be created
+  + resource "aws_key_pair" "login" {
+      + arn             = (known after apply)
+      + fingerprint     = (known after apply)
+      + id              = (known after apply)
+      + key_name        = "login"
+      + key_name_prefix = (known after apply)
+      + key_pair_id     = (known after apply)
+      + key_type        = (known after apply)
+      + public_key      = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDLSkiGbOhbYcLdQp+WhkXXXvCIAclVI+uHPHn7E0Fe5TIPE6XDA3/8o79gpXVVi7vi1elkM5REp6XWEthT7XtF+RSiDd0toa5LU/iphp3Ky1dLY0R2sGO3b4hK2ZTpcw1bfu2GlbfhP+12h6gtG1fncu3fPyK18c2rzoFSsIO0OlQM0q9v26gnSCujwplXA1LUzuGewLHGnP2da/pfRW3iuqG74VHRcGenaPgAoQ7wIBpUtR9c9XfWfjyx4S+KLw3h48rKnTvdnG+dlv0RNJbAm37vPE9w1WHjJk6JZ7n+PwLtPP0YcA9YDF+A7MBIaJ6RDsDBZSvghQ/8oStkqtnN alexanderwehrpr@ip-172-31-16-69"
+      + tags_all        = (known after apply)
+    }
+
+  # aws_lb.alb will be created
+  + resource "aws_lb" "alb" {
+      + arn                        = (known after apply)
+      + arn_suffix                 = (known after apply)
+      + desync_mitigation_mode     = "defensive"
+      + dns_name                   = (known after apply)
+      + drop_invalid_header_fields = false
+      + enable_deletion_protection = false
+      + enable_http2               = true
+      + enable_waf_fail_open       = false
+      + id                         = (known after apply)
+      + idle_timeout               = 60
+      + internal                   = true
+      + ip_address_type            = (known after apply)
+      + load_balancer_type         = "application"
+      + name                       = "project-alb"
+      + preserve_host_header       = false
+      + security_groups            = (known after apply)
+      + subnets                    = (known after apply)
+      + tags_all                   = (known after apply)
+      + vpc_id                     = (known after apply)
+      + zone_id                    = (known after apply)
+
+      + subnet_mapping {
+          + allocation_id        = (known after apply)
+          + ipv6_address         = (known after apply)
+          + outpost_id           = (known after apply)
+          + private_ipv4_address = (known after apply)
+          + subnet_id            = (known after apply)
+        }
+    }
+
+  # aws_lb.nlb will be created
+  + resource "aws_lb" "nlb" {
+      + arn                              = (known after apply)
+      + arn_suffix                       = (known after apply)
+      + dns_name                         = (known after apply)
+      + enable_cross_zone_load_balancing = false
+      + enable_deletion_protection       = false
+      + id                               = (known after apply)
+      + internal                         = false
+      + ip_address_type                  = (known after apply)
+      + load_balancer_type               = "network"
+      + name                             = "project-nlb"
+      + security_groups                  = (known after apply)
+      + subnets                          = (known after apply)
+      + tags_all                         = (known after apply)
+      + vpc_id                           = (known after apply)
+      + zone_id                          = (known after apply)
+
+      + subnet_mapping {
+          + allocation_id = (known after apply)
+          + outpost_id    = (known after apply)
+          + subnet_id     = (known after apply)
+        }
+    }
+
+  # aws_lb_listener.api will be created
+  + resource "aws_lb_listener" "api" {
+      + arn               = (known after apply)
+      + id                = (known after apply)
+      + load_balancer_arn = (known after apply)
+      + port              = 8080
+      + protocol          = "HTTP"
+      + ssl_policy        = (known after apply)
+      + tags_all          = (known after apply)
+
+      + default_action {
+          + order            = (known after apply)
+          + target_group_arn = (known after apply)
+          + type             = "forward"
+        }
+    }
+
+  # aws_lb_listener.http will be created
+  + resource "aws_lb_listener" "http" {
+      + arn               = (known after apply)
+      + id                = (known after apply)
+      + load_balancer_arn = (known after apply)
+      + port              = 80
+      + protocol          = "HTTP"
+      + ssl_policy        = (known after apply)
+      + tags_all          = (known after apply)
+
+      + default_action {
+          + order            = (known after apply)
+          + target_group_arn = (known after apply)
+          + type             = "forward"
+        }
+    }
+
+  # aws_lb_listener.tcp_api will be created
+  + resource "aws_lb_listener" "tcp_api" {
+      + arn               = (known after apply)
+      + id                = (known after apply)
+      + load_balancer_arn = (known after apply)
+      + port              = 8080
+      + protocol          = "TCP"
+      + ssl_policy        = (known after apply)
+      + tags_all          = (known after apply)
+
+      + default_action {
+          + order            = (known after apply)
+          + target_group_arn = (known after apply)
+          + type             = "forward"
+        }
+    }
+
+  # aws_lb_listener.tcp_http will be created
+  + resource "aws_lb_listener" "tcp_http" {
+      + arn               = (known after apply)
+      + id                = (known after apply)
+      + load_balancer_arn = (known after apply)
+      + port              = 80
+      + protocol          = "TCP"
+      + ssl_policy        = (known after apply)
+      + tags_all          = (known after apply)
+
+      + default_action {
+          + order            = (known after apply)
+          + target_group_arn = (known after apply)
+          + type             = "forward"
+        }
+    }
+
+  # aws_lb_target_group.a_api_tg will be created
+  + resource "aws_lb_target_group" "a_api_tg" {
+      + arn                                = (known after apply)
+      + arn_suffix                         = (known after apply)
+      + connection_termination             = false
+      + deregistration_delay               = "300"
+      + id                                 = (known after apply)
+      + ip_address_type                    = (known after apply)
+      + lambda_multi_value_headers_enabled = false
+      + load_balancing_algorithm_type      = (known after apply)
+      + name                               = (known after apply)
+      + port                               = 8080
+      + preserve_client_ip                 = (known after apply)
+      + protocol                           = "HTTP"
+      + protocol_version                   = (known after apply)
+      + proxy_protocol_v2                  = false
+      + slow_start                         = 0
+      + tags_all                           = (known after apply)
+      + target_type                        = "instance"
+      + vpc_id                             = (known after apply)
+
+      + health_check {
+          + enabled             = (known after apply)
+          + healthy_threshold   = (known after apply)
+          + interval            = (known after apply)
+          + matcher             = (known after apply)
+          + path                = (known after apply)
+          + port                = (known after apply)
+          + protocol            = (known after apply)
+          + timeout             = (known after apply)
+          + unhealthy_threshold = (known after apply)
+        }
+
+      + stickiness {
+          + cookie_duration = (known after apply)
+          + cookie_name     = (known after apply)
+          + enabled         = (known after apply)
+          + type            = (known after apply)
+        }
+
+      + target_failover {
+          + on_deregistration = (known after apply)
+          + on_unhealthy      = (known after apply)
+        }
+    }
+
+  # aws_lb_target_group.a_http_tg will be created
+  + resource "aws_lb_target_group" "a_http_tg" {
+      + arn                                = (known after apply)
+      + arn_suffix                         = (known after apply)
+      + connection_termination             = false
+      + deregistration_delay               = "300"
+      + id                                 = (known after apply)
+      + ip_address_type                    = (known after apply)
+      + lambda_multi_value_headers_enabled = false
+      + load_balancing_algorithm_type      = (known after apply)
+      + name                               = (known after apply)
+      + port                               = 80
+      + preserve_client_ip                 = (known after apply)
+      + protocol                           = "HTTP"
+      + protocol_version                   = (known after apply)
+      + proxy_protocol_v2                  = false
+      + slow_start                         = 0
+      + tags_all                           = (known after apply)
+      + target_type                        = "instance"
+      + vpc_id                             = (known after apply)
+
+      + health_check {
+          + enabled             = (known after apply)
+          + healthy_threshold   = (known after apply)
+          + interval            = (known after apply)
+          + matcher             = (known after apply)
+          + path                = (known after apply)
+          + port                = (known after apply)
+          + protocol            = (known after apply)
+          + timeout             = (known after apply)
+          + unhealthy_threshold = (known after apply)
+        }
+
+      + stickiness {
+          + cookie_duration = (known after apply)
+          + cookie_name     = (known after apply)
+          + enabled         = (known after apply)
+          + type            = (known after apply)
+        }
+
+      + target_failover {
+          + on_deregistration = (known after apply)
+          + on_unhealthy      = (known after apply)
+        }
+    }
+
+  # aws_lb_target_group.n_api_tg will be created
+  + resource "aws_lb_target_group" "n_api_tg" {
+      + arn                                = (known after apply)
+      + arn_suffix                         = (known after apply)
+      + connection_termination             = false
+      + deregistration_delay               = "300"
+      + id                                 = (known after apply)
+      + ip_address_type                    = (known after apply)
+      + lambda_multi_value_headers_enabled = false
+      + load_balancing_algorithm_type      = (known after apply)
+      + name                               = (known after apply)
+      + port                               = 8080
+      + preserve_client_ip                 = (known after apply)
+      + protocol                           = "TCP"
+      + protocol_version                   = (known after apply)
+      + proxy_protocol_v2                  = false
+      + slow_start                         = 0
+      + tags_all                           = (known after apply)
+      + target_type                        = "alb"
+      + vpc_id                             = (known after apply)
+
+      + health_check {
+          + enabled             = (known after apply)
+          + healthy_threshold   = (known after apply)
+          + interval            = (known after apply)
+          + matcher             = (known after apply)
+          + path                = (known after apply)
+          + port                = (known after apply)
+          + protocol            = (known after apply)
+          + timeout             = (known after apply)
+          + unhealthy_threshold = (known after apply)
+        }
+
+      + stickiness {
+          + cookie_duration = (known after apply)
+          + cookie_name     = (known after apply)
+          + enabled         = (known after apply)
+          + type            = (known after apply)
+        }
+
+      + target_failover {
+          + on_deregistration = (known after apply)
+          + on_unhealthy      = (known after apply)
+        }
+    }
+
+  # aws_lb_target_group.n_http_tg will be created
+  + resource "aws_lb_target_group" "n_http_tg" {
+      + arn                                = (known after apply)
+      + arn_suffix                         = (known after apply)
+      + connection_termination             = false
+      + deregistration_delay               = "300"
+      + id                                 = (known after apply)
+      + ip_address_type                    = (known after apply)
+      + lambda_multi_value_headers_enabled = false
+      + load_balancing_algorithm_type      = (known after apply)
+      + name                               = (known after apply)
+      + port                               = 80
+      + preserve_client_ip                 = (known after apply)
+      + protocol                           = "TCP"
+      + protocol_version                   = (known after apply)
+      + proxy_protocol_v2                  = false
+      + slow_start                         = 0
+      + tags_all                           = (known after apply)
+      + target_type                        = "alb"
+      + vpc_id                             = (known after apply)
+
+      + health_check {
+          + enabled             = (known after apply)
+          + healthy_threshold   = (known after apply)
+          + interval            = (known after apply)
+          + matcher             = (known after apply)
+          + path                = (known after apply)
+          + port                = (known after apply)
+          + protocol            = (known after apply)
+          + timeout             = (known after apply)
+          + unhealthy_threshold = (known after apply)
+        }
+
+      + stickiness {
+          + cookie_duration = (known after apply)
+          + cookie_name     = (known after apply)
+          + enabled         = (known after apply)
+          + type            = (known after apply)
+        }
+
+      + target_failover {
+          + on_deregistration = (known after apply)
+          + on_unhealthy      = (known after apply)
+        }
+    }
+
+  # aws_lb_target_group_attachment.albton_api_attachment will be created
+  + resource "aws_lb_target_group_attachment" "albton_api_attachment" {
+      + id               = (known after apply)
+      + port             = 8080
+      + target_group_arn = (known after apply)
+      + target_id        = (known after apply)
+    }
+
+  # aws_lb_target_group_attachment.albton_http_attachment will be created
+  + resource "aws_lb_target_group_attachment" "albton_http_attachment" {
+      + id               = (known after apply)
+      + port             = 80
+      + target_group_arn = (known after apply)
+      + target_id        = (known after apply)
+    }
+
+  # aws_lb_target_group_attachment.masterto_a_api will be created
+  + resource "aws_lb_target_group_attachment" "masterto_a_api" {
+      + id               = (known after apply)
+      + port             = 30800
+      + target_group_arn = (known after apply)
+      + target_id        = (known after apply)
+    }
+
+  # aws_lb_target_group_attachment.masterto_a_http will be created
+  + resource "aws_lb_target_group_attachment" "masterto_a_http" {
+      + id               = (known after apply)
+      + port             = 30400
+      + target_group_arn = (known after apply)
+      + target_id        = (known after apply)
+    }
+
+  # aws_lb_target_group_attachment.worker1to_a_api will be created
+  + resource "aws_lb_target_group_attachment" "worker1to_a_api" {
+      + id               = (known after apply)
+      + port             = 30800
+      + target_group_arn = (known after apply)
+      + target_id        = (known after apply)
+    }
+
+  # aws_lb_target_group_attachment.worker1to_a_http will be created
+  + resource "aws_lb_target_group_attachment" "worker1to_a_http" {
+      + id               = (known after apply)
+      + port             = 30400
+      + target_group_arn = (known after apply)
+      + target_id        = (known after apply)
+    }
+
+  # aws_lb_target_group_attachment.worker2to_a_api will be created
+  + resource "aws_lb_target_group_attachment" "worker2to_a_api" {
+      + id               = (known after apply)
+      + port             = 30800
+      + target_group_arn = (known after apply)
+      + target_id        = (known after apply)
+    }
+
+  # aws_lb_target_group_attachment.worker2to_a_http will be created
+  + resource "aws_lb_target_group_attachment" "worker2to_a_http" {
+      + id               = (known after apply)
+      + port             = 30400
+      + target_group_arn = (known after apply)
+      + target_id        = (known after apply)
+    }
+
+  # aws_route_table.mainrouting will be created
+  + resource "aws_route_table" "mainrouting" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = [
+          + {
+              + carrier_gateway_id         = ""
+              + cidr_block                 = "0.0.0.0/0"
+              + core_network_arn           = ""
+              + destination_prefix_list_id = ""
+              + egress_only_gateway_id     = ""
+              + gateway_id                 = (known after apply)
+              + instance_id                = ""
+              + ipv6_cidr_block            = ""
+              + local_gateway_id           = ""
+              + nat_gateway_id             = ""
+              + network_interface_id       = ""
+              + transit_gateway_id         = ""
+              + vpc_endpoint_id            = ""
+              + vpc_peering_connection_id  = ""
+            },
+        ]
+      + tags_all         = (known after apply)
+      + vpc_id           = (known after apply)
+    }
+
+  # aws_route_table_association.public1 will be created
+  + resource "aws_route_table_association" "public1" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # aws_route_table_association.public2 will be created
+  + resource "aws_route_table_association" "public2" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # aws_security_group.projectaccess will be created
+  + resource "aws_security_group" "projectaccess" {
+      + arn                    = (known after apply)
+      + description            = "Managed by Terraform"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 22
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 22
+            },
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 6443
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 6443
+            },
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 8080
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 8080
+            },
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 80
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 80
+            },
+          + {
+              + cidr_blocks      = [
+                  + "10.0.0.0/16",
+                ]
+              + description      = ""
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+            },
+        ]
+      + name                   = "projectnetrules"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags_all               = (known after apply)
+      + vpc_id                 = (known after apply)
+    }
+
+  # aws_subnet.main1 will be created
+  + resource "aws_subnet" "main1" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-1a"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.0.1.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags_all                                       = (known after apply)
+      + vpc_id                                         = (known after apply)
+    }
+
+  # aws_subnet.main2 will be created
+  + resource "aws_subnet" "main2" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-1b"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.0.0.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags_all                                       = (known after apply)
+      + vpc_id                                         = (known after apply)
+    }
+
+  # aws_vpc.main will be created
+  + resource "aws_vpc" "main" {
+      + arn                                  = (known after apply)
+      + cidr_block                           = "10.0.0.0/16"
+      + default_network_acl_id               = (known after apply)
+      + default_route_table_id               = (known after apply)
+      + default_security_group_id            = (known after apply)
+      + dhcp_options_id                      = (known after apply)
+      + enable_classiclink                   = (known after apply)
+      + enable_classiclink_dns_support       = (known after apply)
+      + enable_dns_hostnames                 = true
+      + enable_dns_support                   = true
+      + enable_network_address_usage_metrics = (known after apply)
+      + id                                   = (known after apply)
+      + instance_tenancy                     = "default"
+      + ipv6_association_id                  = (known after apply)
+      + ipv6_cidr_block                      = (known after apply)
+      + ipv6_cidr_block_network_border_group = (known after apply)
+      + main_route_table_id                  = (known after apply)
+      + owner_id                             = (known after apply)
+      + tags_all                             = (known after apply)
+    }
+
+  # null_resource.backup_etcd will be created
+  + resource "null_resource" "backup_etcd" {
+      + id = (known after apply)
+    }
+
+  # null_resource.configure_hosts will be created
+  + resource "null_resource" "configure_hosts" {
+      + id = (known after apply)
+    }
+
+  # null_resource.deploy_apps will be created
+  + resource "null_resource" "deploy_apps" {
+      + id = (known after apply)
+    }
+
+  # null_resource.load_and_test_pod_user will be created
+  + resource "null_resource" "load_and_test_pod_user" {
+      + id = (known after apply)
+    }
+
+  # null_resource.load_data will be created
+  + resource "null_resource" "load_data" {
+      + id = (known after apply)
+    }
+
+  # null_resource.load_test will be created
+  + resource "null_resource" "load_test" {
+      + id = (known after apply)
+    }
+
+  # null_resource.ready_kubernetes will be created
+  + resource "null_resource" "ready_kubernetes" {
+      + id = (known after apply)
+    }
+
+  # null_resource.wait_for_webservices will be created
+  + resource "null_resource" "wait_for_webservices" {
+      + id = (known after apply)
+    }
+
+Plan: 39 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + eip_ip            = (known after apply)
+  + master_ip         = (known after apply)
+  + master_private_ip = "10.0.1.240"
+  + worker1_ip        = (known after apply)
+  + worker2_ip        = (known after apply)
+aws_key_pair.login: Creating...
+aws_vpc.main: Creating...
+aws_key_pair.login: Creation complete after 0s [id=login]
+aws_vpc.main: Still creating... [10s elapsed]
+aws_vpc.main: Creation complete after 11s [id=vpc-096b05419aabb9540]
+aws_subnet.main1: Creating...
+aws_internet_gateway.maingw: Creating...
+aws_lb_target_group.n_http_tg: Creating...
+aws_subnet.main2: Creating...
+aws_lb_target_group.n_api_tg: Creating...
+aws_lb_target_group.a_api_tg: Creating...
+aws_security_group.projectaccess: Creating...
+aws_lb_target_group.a_http_tg: Creating...
+aws_internet_gateway.maingw: Creation complete after 0s [id=igw-001f68ffbee634378]
+aws_eip.lbip: Creating...
+aws_route_table.mainrouting: Creating...
+aws_lb_target_group.n_api_tg: Creation complete after 0s [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929879200000002/f7befa1f48fa7f37]
+aws_lb_target_group.a_api_tg: Creation complete after 0s [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb]
+aws_lb_target_group.n_http_tg: Creation complete after 0s [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929874500000001/8044a5856b447997]
+aws_lb_target_group.a_http_tg: Creation complete after 0s [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca]
+aws_subnet.main1: Creation complete after 0s [id=subnet-0f6446f237f4a5253]
+aws_subnet.main2: Creation complete after 0s [id=subnet-0f44d82956abbce3a]
+aws_eip.lbip: Creation complete after 0s [id=eipalloc-0de0b736f1d4d70a9]
+aws_lb.nlb: Creating...
+aws_route_table.mainrouting: Creation complete after 2s [id=rtb-0effc50920f4d0713]
+aws_route_table_association.public2: Creating...
+aws_route_table_association.public1: Creating...
+aws_security_group.projectaccess: Creation complete after 2s [id=sg-01378f178de70e1e9]
+aws_instance.master: Creating...
+aws_instance.worker1: Creating...
+aws_lb.alb: Creating...
+aws_instance.worker2: Creating...
+aws_route_table_association.public1: Creation complete after 0s [id=rtbassoc-09ed55b5b6415f7a9]
+aws_route_table_association.public2: Creation complete after 0s [id=rtbassoc-05beecd8ab8b4ab9e]
+aws_lb.nlb: Still creating... [10s elapsed]
+aws_instance.worker1: Still creating... [10s elapsed]
+aws_instance.master: Still creating... [10s elapsed]
+aws_lb.alb: Still creating... [10s elapsed]
+aws_instance.worker2: Still creating... [10s elapsed]
+aws_instance.worker2: Provisioning with 'remote-exec'...
+aws_instance.worker2 (remote-exec): Connecting to remote host via SSH...
+aws_instance.worker2 (remote-exec):   Host: 50.17.136.174
+aws_instance.worker2 (remote-exec):   User: ubuntu
+aws_instance.worker2 (remote-exec):   Password: false
+aws_instance.worker2 (remote-exec):   Private key: true
+aws_instance.worker2 (remote-exec):   Certificate: false
+aws_instance.worker2 (remote-exec):   SSH Agent: true
+aws_instance.worker2 (remote-exec):   Checking Host Key: false
+aws_instance.worker2 (remote-exec):   Target Platform: unix
+aws_instance.master: Provisioning with 'remote-exec'...
+aws_instance.master (remote-exec): Connecting to remote host via SSH...
+aws_instance.master (remote-exec):   Host: 3.85.31.168
+aws_instance.master (remote-exec):   User: ubuntu
+aws_instance.master (remote-exec):   Password: false
+aws_instance.master (remote-exec):   Private key: true
+aws_instance.master (remote-exec):   Certificate: false
+aws_instance.master (remote-exec):   SSH Agent: true
+aws_instance.master (remote-exec):   Checking Host Key: false
+aws_instance.master (remote-exec):   Target Platform: unix
+aws_instance.worker1: Provisioning with 'remote-exec'...
+aws_instance.worker1 (remote-exec): Connecting to remote host via SSH...
+aws_instance.worker1 (remote-exec):   Host: 54.92.153.2
+aws_instance.worker1 (remote-exec):   User: ubuntu
+aws_instance.worker1 (remote-exec):   Password: false
+aws_instance.worker1 (remote-exec):   Private key: true
+aws_instance.worker1 (remote-exec):   Certificate: false
+aws_instance.worker1 (remote-exec):   SSH Agent: true
+aws_instance.worker1 (remote-exec):   Checking Host Key: false
+aws_instance.worker1 (remote-exec):   Target Platform: unix
+aws_instance.worker2 (remote-exec): Connecting to remote host via SSH...
+aws_instance.worker2 (remote-exec):   Host: 50.17.136.174
+aws_instance.worker2 (remote-exec):   User: ubuntu
+aws_instance.worker2 (remote-exec):   Password: false
+aws_instance.worker2 (remote-exec):   Private key: true
+aws_instance.worker2 (remote-exec):   Certificate: false
+aws_instance.worker2 (remote-exec):   SSH Agent: true
+aws_instance.worker2 (remote-exec):   Checking Host Key: false
+aws_instance.worker2 (remote-exec):   Target Platform: unix
+aws_instance.worker2 (remote-exec): Connecting to remote host via SSH...
+aws_instance.worker2 (remote-exec):   Host: 50.17.136.174
+aws_instance.worker2 (remote-exec):   User: ubuntu
+aws_instance.worker2 (remote-exec):   Password: false
+aws_instance.worker2 (remote-exec):   Private key: true
+aws_instance.worker2 (remote-exec):   Certificate: false
+aws_instance.worker2 (remote-exec):   SSH Agent: true
+aws_instance.worker2 (remote-exec):   Checking Host Key: false
+aws_instance.worker2 (remote-exec):   Target Platform: unix
+aws_lb.nlb: Still creating... [20s elapsed]
+aws_instance.worker1: Still creating... [20s elapsed]
+aws_instance.master: Still creating... [20s elapsed]
+aws_lb.alb: Still creating... [20s elapsed]
+aws_instance.worker2: Still creating... [20s elapsed]
+aws_instance.master (remote-exec): Connecting to remote host via SSH...
+aws_instance.master (remote-exec):   Host: 3.85.31.168
+aws_instance.master (remote-exec):   User: ubuntu
+aws_instance.master (remote-exec):   Password: false
+aws_instance.master (remote-exec):   Private key: true
+aws_instance.master (remote-exec):   Certificate: false
+aws_instance.master (remote-exec):   SSH Agent: true
+aws_instance.master (remote-exec):   Checking Host Key: false
+aws_instance.master (remote-exec):   Target Platform: unix
+aws_instance.worker1 (remote-exec): Connected!
+aws_instance.worker1 (remote-exec): foo
+aws_instance.worker1: Creation complete after 22s [id=i-0e65c7be72702a61e]
+aws_lb_target_group_attachment.worker1to_a_http: Creating...
+aws_lb_target_group_attachment.worker1to_a_api: Creating...
+aws_lb_target_group_attachment.worker1to_a_api: Creation complete after 0s [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb-20221126225954077700000008]
+aws_lb_target_group_attachment.worker1to_a_http: Creation complete after 0s [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca-20221126225954162800000009]
+aws_instance.master (remote-exec): Connected!
+aws_instance.worker2 (remote-exec): Connecting to remote host via SSH...
+aws_instance.worker2 (remote-exec):   Host: 50.17.136.174
+aws_instance.worker2 (remote-exec):   User: ubuntu
+aws_instance.worker2 (remote-exec):   Password: false
+aws_instance.worker2 (remote-exec):   Private key: true
+aws_instance.worker2 (remote-exec):   Certificate: false
+aws_instance.worker2 (remote-exec):   SSH Agent: true
+aws_instance.worker2 (remote-exec):   Checking Host Key: false
+aws_instance.worker2 (remote-exec):   Target Platform: unix
+aws_instance.master (remote-exec): foo
+aws_instance.master: Creation complete after 22s [id=i-05b65954f5a5a70fa]
+aws_lb_target_group_attachment.masterto_a_http: Creating...
+aws_lb_target_group_attachment.masterto_a_api: Creating...
+aws_lb_target_group_attachment.masterto_a_http: Creation complete after 1s [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca-2022112622595462850000000a]
+aws_lb_target_group_attachment.masterto_a_api: Creation complete after 1s [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb-2022112622595471330000000b]
+aws_instance.worker2 (remote-exec): Connected!
+aws_instance.worker2 (remote-exec): foo
+aws_instance.worker2: Creation complete after 24s [id=i-0e7b43f8e0a1f3adb]
+aws_lb_target_group_attachment.worker2to_a_api: Creating...
+null_resource.configure_hosts: Creating...
+aws_lb_target_group_attachment.worker2to_a_http: Creating...
+null_resource.configure_hosts: Provisioning with 'local-exec'...
+null_resource.configure_hosts (local-exec): Executing: ["/bin/sh" "-c" "      cat <<EOF >sed.sh\ncp ~/.kube/config /tmp/config\ncat /tmp/config | grep -v certificate-authority-data | sed \"s/10.0.1.240:6443/3.85.31.168:6443\\n    insecure-skip-tls-verify: true/g\" > ~/.kube/config\nrm -f /tmp/config\nEOF\n      cat <<EOF > myhosts\n[masters]\n3.85.31.168 ansible_user=ubuntu ansible_ssh_private_key_file=./terraform_key\n[workers]\n54.92.153.2 ansible_user=ubuntu ansible_ssh_private_key_file=./terraform_key\n50.17.136.174 ansible_user=ubuntu ansible_ssh_private_key_file=./terraform_key\nEOF\n      ansible-playbook -i myhosts deploy-kubernetes.yml\n"]
+aws_lb_target_group_attachment.worker2to_a_api: Creation complete after 0s [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929884800000003/e84e070d9be2f9eb-2022112622595643180000000c]
+aws_lb_target_group_attachment.worker2to_a_http: Creation complete after 0s [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929895000000004/0d32ac0ef2a832ca-2022112622595648610000000d]
+
+null_resource.configure_hosts (local-exec): PLAY [Deploy Kubernetes Nodes] *************************************************
+
+null_resource.configure_hosts (local-exec): TASK [Gathering Facts] *********************************************************
+null_resource.configure_hosts (local-exec): ok: [3.85.31.168]
+null_resource.configure_hosts (local-exec): ok: [54.92.153.2]
+null_resource.configure_hosts (local-exec): ok: [50.17.136.174]
+
+null_resource.configure_hosts (local-exec): TASK [update apt] **************************************************************
+aws_lb.nlb: Still creating... [30s elapsed]
+aws_lb.alb: Still creating... [30s elapsed]
+null_resource.configure_hosts: Still creating... [10s elapsed]
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168]
+aws_lb.nlb: Still creating... [40s elapsed]
+aws_lb.alb: Still creating... [40s elapsed]
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2]
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174]
+
+null_resource.configure_hosts (local-exec): TASK [swap off] ****************************************************************
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174]
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168]
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2]
+
+null_resource.configure_hosts (local-exec): TASK [install base support packages] *******************************************
+null_resource.configure_hosts: Still creating... [20s elapsed]
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=apt-transport-https)
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=apt-transport-https)
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=apt-transport-https)
+aws_lb.nlb: Still creating... [50s elapsed]
+null_resource.configure_hosts (local-exec): ok: [3.85.31.168] => (item=ca-certificates)
+null_resource.configure_hosts (local-exec): ok: [54.92.153.2] => (item=ca-certificates)
+null_resource.configure_hosts (local-exec): ok: [50.17.136.174] => (item=ca-certificates)
+aws_lb.alb: Still creating... [50s elapsed]
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=gnupg2)
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=gnupg2)
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=gnupg2)
+null_resource.configure_hosts (local-exec): ok: [3.85.31.168] => (item=software-properties-common)
+null_resource.configure_hosts: Still creating... [30s elapsed]
+null_resource.configure_hosts (local-exec): ok: [54.92.153.2] => (item=software-properties-common)
+null_resource.configure_hosts (local-exec): ok: [50.17.136.174] => (item=software-properties-common)
+aws_lb.nlb: Still creating... [1m0s elapsed]
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=curl)
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=curl)
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=curl)
+aws_lb.alb: Still creating... [1m0s elapsed]
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=git)
+null_resource.configure_hosts: Still creating... [40s elapsed]
+null_resource.configure_hosts (local-exec): ok: [3.85.31.168] => (item=wget)
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=git)
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=git)
+null_resource.configure_hosts (local-exec): ok: [54.92.153.2] => (item=wget)
+null_resource.configure_hosts (local-exec): ok: [50.17.136.174] => (item=wget)
+aws_lb.nlb: Still creating... [1m10s elapsed]
+aws_lb.alb: Still creating... [1m10s elapsed]
+null_resource.configure_hosts: Still creating... [50s elapsed]
+aws_lb.nlb: Still creating... [1m20s elapsed]
+aws_lb.alb: Still creating... [1m20s elapsed]
+null_resource.configure_hosts: Still creating... [1m0s elapsed]
+aws_lb.nlb: Still creating... [1m30s elapsed]
+aws_lb.alb: Still creating... [1m30s elapsed]
+null_resource.configure_hosts: Still creating... [1m10s elapsed]
+aws_lb.nlb: Still creating... [1m40s elapsed]
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=golang)
+aws_lb.alb: Still creating... [1m40s elapsed]
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=golang)
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=golang)
+null_resource.configure_hosts: Still creating... [1m20s elapsed]
+aws_lb.nlb: Still creating... [1m50s elapsed]
+aws_lb.alb: Still creating... [1m50s elapsed]
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=nfs-kernel-server)
+null_resource.configure_hosts (local-exec): ok: [3.85.31.168] => (item=nfs-common)
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=nfs-kernel-server)
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=nfs-kernel-server)
+null_resource.configure_hosts: Still creating... [1m30s elapsed]
+null_resource.configure_hosts (local-exec): ok: [50.17.136.174] => (item=nfs-common)
+null_resource.configure_hosts (local-exec): ok: [54.92.153.2] => (item=nfs-common)
+
+null_resource.configure_hosts (local-exec): TASK [install apt keys for docker and kubernetes] ******************************
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=https://download.docker.com/linux/ubuntu/gpg)
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=https://download.docker.com/linux/ubuntu/gpg)
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=https://download.docker.com/linux/ubuntu/gpg)
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=https://packages.cloud.google.com/apt/doc/apt-key.gpg)
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=https://packages.cloud.google.com/apt/doc/apt-key.gpg)
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=https://packages.cloud.google.com/apt/doc/apt-key.gpg)
+
+null_resource.configure_hosts (local-exec): TASK [install apt repos for docker and kubernetes] *****************************
+aws_lb.nlb: Still creating... [2m0s elapsed]
+aws_lb.alb: Still creating... [2m0s elapsed]
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=deb https://apt.kubernetes.io/ kubernetes-xenial main)
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=deb https://apt.kubernetes.io/ kubernetes-xenial main)
+null_resource.configure_hosts: Still creating... [1m40s elapsed]
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=deb https://apt.kubernetes.io/ kubernetes-xenial main)
+aws_lb.nlb: Still creating... [2m10s elapsed]
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable)
+aws_lb.alb: Still creating... [2m10s elapsed]
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable)
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable)
+
+null_resource.configure_hosts (local-exec): TASK [update new apt repos] ****************************************************
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168]
+null_resource.configure_hosts: Still creating... [1m50s elapsed]
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174]
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2]
+
+null_resource.configure_hosts (local-exec): TASK [install docker and kubernetes packages] **********************************
+aws_lb.nlb: Still creating... [2m20s elapsed]
+aws_lb.alb: Still creating... [2m20s elapsed]
+aws_lb.alb: Creation complete after 2m21s [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/app/project-alb/0894784ed3f007aa]
+aws_lb_listener.http: Creating...
+aws_lb_listener.api: Creating...
+aws_lb_listener.http: Creation complete after 1s [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/217729087ad3c714]
+aws_lb_target_group_attachment.albton_http_attachment: Creating...
+aws_lb_listener.api: Creation complete after 1s [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/app/project-alb/0894784ed3f007aa/d69285756ac14e3f]
+aws_lb_target_group_attachment.albton_api_attachment: Creating...
+aws_lb_target_group_attachment.albton_http_attachment: Creation complete after 0s [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929874500000001/8044a5856b447997-2022112623015372860000000e]
+aws_lb_target_group_attachment.albton_api_attachment: Creation complete after 0s [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:targetgroup/tf-20221126225929879200000002/f7befa1f48fa7f37-2022112623015375570000000f]
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=containerd.io)
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=containerd.io)
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=containerd.io)
+null_resource.configure_hosts: Still creating... [2m0s elapsed]
+aws_lb.nlb: Still creating... [2m30s elapsed]
+aws_lb.nlb: Creation complete after 2m32s [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:loadbalancer/net/project-nlb/cafee7d47843f9be]
+aws_lb_listener.tcp_http: Creating...
+aws_lb_listener.tcp_api: Creating...
+aws_lb_listener.tcp_http: Creation complete after 0s [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/net/project-nlb/cafee7d47843f9be/1929deba0c35fcc6]
+aws_lb_listener.tcp_api: Creation complete after 0s [id=arn:aws:elasticloadbalancing:us-east-1:837789014863:listener/net/project-nlb/cafee7d47843f9be/47e3e6e5703e2ce2]
+null_resource.configure_hosts: Still creating... [2m10s elapsed]
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=docker-ce)
+null_resource.configure_hosts (local-exec): ok: [50.17.136.174] => (item=docker-ce-cli)
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=docker-ce)
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=docker-ce)
+null_resource.configure_hosts: Still creating... [2m20s elapsed]
+null_resource.configure_hosts (local-exec): ok: [3.85.31.168] => (item=docker-ce-cli)
+null_resource.configure_hosts (local-exec): ok: [54.92.153.2] => (item=docker-ce-cli)
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=docker-compose-plugin)
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=docker-compose-plugin)
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=docker-compose-plugin)
+null_resource.configure_hosts: Still creating... [2m30s elapsed]
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=kubelet)
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=kubelet)
+null_resource.configure_hosts: Still creating... [2m40s elapsed]
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=kubelet)
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=kubeadm)
+null_resource.configure_hosts (local-exec): ok: [50.17.136.174] => (item=kubectl)
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=kubeadm)
+null_resource.configure_hosts (local-exec): ok: [3.85.31.168] => (item=kubectl)
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=etcd-client)
+null_resource.configure_hosts: Still creating... [2m50s elapsed]
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=kubeadm)
+null_resource.configure_hosts (local-exec): ok: [54.92.153.2] => (item=kubectl)
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=etcd-client)
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=etcd-client)
+
+null_resource.configure_hosts (local-exec): TASK [apt-mark hold kubernetes packages] ***************************************
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=kubelet)
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=kubelet)
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=kubelet)
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=kubeadm)
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=kubeadm)
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=kubeadm)
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=kubectl)
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=kubectl)
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=kubectl)
+
+null_resource.configure_hosts (local-exec): TASK [modprobe network items] **************************************************
+null_resource.configure_hosts (local-exec): ok: [3.85.31.168] => (item=overlay)
+null_resource.configure_hosts (local-exec): ok: [54.92.153.2] => (item=overlay)
+null_resource.configure_hosts (local-exec): ok: [50.17.136.174] => (item=overlay)
+null_resource.configure_hosts (local-exec): ok: [54.92.153.2] => (item=br_netfilter)
+null_resource.configure_hosts (local-exec): ok: [50.17.136.174] => (item=br_netfilter)
+null_resource.configure_hosts (local-exec): ok: [3.85.31.168] => (item=br_netfilter)
+
+null_resource.configure_hosts (local-exec): TASK [set sysctl for kubernetes] ***********************************************
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=net.bridge.bridge-nf-call-ip6tables)
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=net.bridge.bridge-nf-call-ip6tables)
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=net.bridge.bridge-nf-call-ip6tables)
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=net.bridge.bridge-nf-call-iptables)
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=net.bridge.bridge-nf-call-iptables)
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=net.bridge.bridge-nf-call-iptables)
+null_resource.configure_hosts: Still creating... [3m0s elapsed]
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=net.ipv4.ip_forward)
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=net.ipv4.ip_forward)
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=net.ipv4.ip_forward)
+
+null_resource.configure_hosts (local-exec): TASK [copy daemon config for docker] *******************************************
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168]
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2]
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174]
+
+null_resource.configure_hosts (local-exec): TASK [copy module config for containerd] ***************************************
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168]
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174]
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2]
+
+null_resource.configure_hosts (local-exec): TASK [reconfigure containerd] **************************************************
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168]
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174]
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2]
+
+null_resource.configure_hosts (local-exec): TASK [restart and enable docker and containerd] ********************************
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=containerd)
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=containerd)
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=containerd)
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168] => (item=docker)
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2] => (item=docker)
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174] => (item=docker)
+
+null_resource.configure_hosts (local-exec): TASK [install cri-dockerd] *****************************************************
+null_resource.configure_hosts: Still creating... [3m10s elapsed]
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174]
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168]
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2]
+
+null_resource.configure_hosts (local-exec): TASK [start and enable cri-docker] *********************************************
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2]
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174]
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168]
+
+null_resource.configure_hosts (local-exec): TASK [hold 20s] ****************************************************************
+null_resource.configure_hosts: Still creating... [3m20s elapsed]
+null_resource.configure_hosts: Still creating... [3m30s elapsed]
+null_resource.configure_hosts (local-exec): changed: [3.85.31.168]
+null_resource.configure_hosts (local-exec): changed: [54.92.153.2]
+null_resource.configure_hosts (local-exec): changed: [50.17.136.174]
+
+null_resource.configure_hosts (local-exec): PLAY RECAP *********************************************************************
+null_resource.configure_hosts (local-exec): 3.85.31.168                : ok=18   changed=16   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+null_resource.configure_hosts (local-exec): 50.17.136.174              : ok=18   changed=16   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+null_resource.configure_hosts (local-exec): 54.92.153.2                : ok=18   changed=16   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+null_resource.configure_hosts: Creation complete after 3m34s [id=1844783689911191179]
+null_resource.ready_kubernetes: Creating...
+null_resource.ready_kubernetes: Provisioning with 'local-exec'...
+null_resource.ready_kubernetes (local-exec): Executing: ["/bin/sh" "-c" "ansible-playbook -i myhosts ready-kubernetes.yml"]
+
+null_resource.ready_kubernetes (local-exec): PLAY [Ready Kubernetes Master] *************************************************
+
+null_resource.ready_kubernetes (local-exec): TASK [Gathering Facts] *********************************************************
+null_resource.ready_kubernetes (local-exec): ok: [3.85.31.168]
+
+null_resource.ready_kubernetes (local-exec): TASK [define NFS export for mydbdata] ******************************************
+null_resource.ready_kubernetes (local-exec): changed: [3.85.31.168]
+
+null_resource.ready_kubernetes (local-exec): TASK [start and enable nfs-server] *********************************************
+null_resource.ready_kubernetes (local-exec): changed: [3.85.31.168]
+
+null_resource.ready_kubernetes (local-exec): TASK [init cluster] ************************************************************
+null_resource.ready_kubernetes: Still creating... [10s elapsed]
+null_resource.ready_kubernetes: Still creating... [20s elapsed]
+null_resource.ready_kubernetes: Still creating... [30s elapsed]
+null_resource.ready_kubernetes (local-exec): changed: [3.85.31.168]
+
+null_resource.ready_kubernetes (local-exec): TASK [create join script] ******************************************************
+null_resource.ready_kubernetes (local-exec): changed: [3.85.31.168 -> localhost]
+
+null_resource.ready_kubernetes (local-exec): TASK [fetch kube config] *******************************************************
+null_resource.ready_kubernetes (local-exec): changed: [3.85.31.168]
+
+null_resource.ready_kubernetes (local-exec): TASK [tweak kube config] *******************************************************
+null_resource.ready_kubernetes (local-exec): changed: [3.85.31.168 -> localhost]
+
+null_resource.ready_kubernetes (local-exec): PLAY [Join Kubernetes Workers] *************************************************
+
+null_resource.ready_kubernetes (local-exec): TASK [Gathering Facts] *********************************************************
+null_resource.ready_kubernetes (local-exec): ok: [50.17.136.174]
+null_resource.ready_kubernetes (local-exec): ok: [54.92.153.2]
+
+null_resource.ready_kubernetes (local-exec): TASK [init worker] *************************************************************
+null_resource.ready_kubernetes: Still creating... [40s elapsed]
+null_resource.ready_kubernetes: Still creating... [50s elapsed]
+null_resource.ready_kubernetes (local-exec): changed: [54.92.153.2]
+null_resource.ready_kubernetes (local-exec): changed: [50.17.136.174]
+
+null_resource.ready_kubernetes (local-exec): PLAY [Ready Additional Core Overlays] ******************************************
+
+null_resource.ready_kubernetes (local-exec): TASK [Gathering Facts] *********************************************************
+null_resource.ready_kubernetes (local-exec): ok: [localhost]
+
+null_resource.ready_kubernetes (local-exec): TASK [wait a moment for kube-system] *******************************************
+null_resource.ready_kubernetes: Still creating... [1m0s elapsed]
+null_resource.ready_kubernetes (local-exec): changed: [localhost]
+
+null_resource.ready_kubernetes (local-exec): TASK [setup weave] *************************************************************
+null_resource.ready_kubernetes: Still creating... [1m10s elapsed]
+null_resource.ready_kubernetes (local-exec): changed: [localhost]
+
+null_resource.ready_kubernetes (local-exec): TASK [setup metrics] ***********************************************************
+null_resource.ready_kubernetes: Still creating... [1m20s elapsed]
+null_resource.ready_kubernetes: Still creating... [1m30s elapsed]
+null_resource.ready_kubernetes: Still creating... [1m40s elapsed]
+null_resource.ready_kubernetes: Still creating... [1m50s elapsed]
+null_resource.ready_kubernetes (local-exec): changed: [localhost]
+
+null_resource.ready_kubernetes (local-exec): PLAY RECAP *********************************************************************
+null_resource.ready_kubernetes (local-exec): 3.85.31.168                : ok=7    changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+null_resource.ready_kubernetes (local-exec): 50.17.136.174              : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+null_resource.ready_kubernetes (local-exec): 54.92.153.2                : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+null_resource.ready_kubernetes (local-exec): localhost                  : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+null_resource.ready_kubernetes: Creation complete after 1m59s [id=2901569142353776373]
+null_resource.deploy_apps: Creating...
+null_resource.deploy_apps: Provisioning with 'local-exec'...
+null_resource.deploy_apps (local-exec): Executing: ["/bin/sh" "-c" "./kube_deployment.sh"]
+null_resource.deploy_apps (local-exec): secret/dbsecret created
+null_resource.deploy_apps (local-exec): persistentvolume/sqlstorage created
+null_resource.deploy_apps (local-exec): persistentvolumeclaim/sqlstorageclaim created
+null_resource.deploy_apps (local-exec): deployment.apps/sqldeployment created
+null_resource.deploy_apps (local-exec): service/mysql created
+null_resource.deploy_apps (local-exec): networkpolicy.networking.k8s.io/mysqlnetpolicy created
+null_resource.deploy_apps (local-exec): deployment.apps/aewehr-api-deployment created
+null_resource.deploy_apps (local-exec): service/aewehr-api-svc created
+null_resource.deploy_apps (local-exec): horizontalpodautoscaler.autoscaling/aewehr-api-autoscaler created
+null_resource.deploy_apps (local-exec): deployment.apps/frontend-deployment created
+null_resource.deploy_apps (local-exec): service/frontend-svc created
+null_resource.deploy_apps (local-exec): horizontalpodautoscaler.autoscaling/frontend-autoscaler created
+null_resource.deploy_apps (local-exec): waiting 30s for deployments and services to start
+null_resource.deploy_apps: Still creating... [10s elapsed]
+null_resource.deploy_apps: Still creating... [20s elapsed]
+null_resource.deploy_apps: Still creating... [30s elapsed]
+null_resource.deploy_apps (local-exec): NAME                                    READY   STATUS    RESTARTS   AGE
+null_resource.deploy_apps (local-exec): aewehr-api-deployment-9d969c664-pb5jb   1/1     Running   0          30s
+null_resource.deploy_apps (local-exec): frontend-deployment-5f84cdb6f6-zx2rj    1/1     Running   0          30s
+null_resource.deploy_apps (local-exec): sqldeployment-d7c66775c-czpsk           1/1     Running   0          31s
+null_resource.deploy_apps: Creation complete after 33s [id=6668942683258586534]
+null_resource.wait_for_webservices: Creating...
+null_resource.wait_for_webservices: Provisioning with 'local-exec'...
+null_resource.wait_for_webservices (local-exec): Executing: ["/bin/sh" "-c" "./wait_for_stable_webservice.sh 44.209.253.66"]
+null_resource.wait_for_webservices: Creation complete after 5s [id=9038052300941907447]
+null_resource.load_data: Creating...
+null_resource.load_data: Provisioning with 'local-exec'...
+null_resource.load_data (local-exec): Executing: ["/bin/sh" "-c" "for i in `seq 1 50`;\ndo\necho \"curl 44.209.253.66:8080/demo/add -d name=CUSTOMER$i -d transaction=$i.00\"\ncurl 44.209.253.66:8080/demo/add -d name=CUSTOMER$i -d transaction=$i.00\ndone\necho \"wget -q -O- http://44.209.253.66\"\nwget -q -O- http://44.209.253.66\n"]
+null_resource.load_data (local-exec): curl 44.209.253.66:8080/demo/add -d name=CUSTOMER1 -d transaction=1.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    36  100     5  100    31     46    289 --:--:-- --:--:-- --:--:--   336
+null_resource.load_data (local-exec): 100    36  100     5  100    31     46    289 --:--:-- --:--:-- --:--:--   333
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER2 -d transaction=2.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    36  100     5  100    31    178   1107 --:--:-- --:--:-- --:--:--  1285
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER3 -d transaction=3.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    36  100     5  100    31    217   1347 --:--:-- --:--:-- --:--:--  1565
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER4 -d transaction=4.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    36  100     5  100    31    166   1033 --:--:-- --:--:-- --:--:--  1200
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER5 -d transaction=5.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    36  100     5  100    31    208   1291 --:--:-- --:--:-- --:--:--  1500
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER6 -d transaction=6.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    36  100     5  100    31    227   1409 --:--:-- --:--:-- --:--:--  1714
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER7 -d transaction=7.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    36  100     5  100    31    227   1409 --:--:-- --:--:-- --:--:--  1636
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER8 -d transaction=8.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    36  100     5  100    31    200   1240 --:--:-- --:--:-- --:--:--  1440
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER9 -d transaction=9.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    36  100     5  100    31    178   1107 --:--:-- --:--:-- --:--:--  1285
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER10 -d transaction=10.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    208   1375 --:--:-- --:--:-- --:--:--  1583
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER11 -d transaction=11.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    192   1269 --:--:-- --:--:-- --:--:--  1461
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER12 -d transaction=12.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    217   1434 --:--:-- --:--:-- --:--:--  1652
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER13 -d transaction=13.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    227   1500 --:--:-- --:--:-- --:--:--  1727
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER14 -d transaction=14.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    238   1571 --:--:-- --:--:-- --:--:--  1809
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER15 -d transaction=15.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    172   1137 --:--:-- --:--:-- --:--:--  1310
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER16 -d transaction=16.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    192   1269 --:--:-- --:--:-- --:--:--  1461
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER17 -d transaction=17.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    227   1500 --:--:-- --:--:-- --:--:--  1809
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER18 -d transaction=18.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    227   1500 --:--:-- --:--:-- --:--:--  1727
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER19 -d transaction=19.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    192   1269 --:--:-- --:--:-- --:--:--  1461
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER20 -d transaction=20.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    200   1320 --:--:-- --:--:-- --:--:--  1520
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER21 -d transaction=21.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    250   1650 --:--:-- --:--:-- --:--:--  1900
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER22 -d transaction=22.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    227   1500 --:--:-- --:--:-- --:--:--  1727
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER23 -d transaction=23.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    238   1571 --:--:-- --:--:-- --:--:--  1809
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER24 -d transaction=24.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    227   1500 --:--:-- --:--:-- --:--:--  1727
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER25 -d transaction=25.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    227   1500 --:--:-- --:--:-- --:--:--  1809
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER26 -d transaction=26.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    250   1650 --:--:-- --:--:-- --:--:--  1900
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER27 -d transaction=27.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    250   1650 --:--:-- --:--:-- --:--:--  1900
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER28 -d transaction=28.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    208   1375 --:--:-- --:--:-- --:--:--  1583
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER29 -d transaction=29.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    250   1650 --:--:-- --:--:-- --:--:--  1900
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER30 -d transaction=30.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    178   1178 --:--:-- --:--:-- --:--:--  1357
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER31 -d transaction=31.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    161   1064 --:--:-- --:--:-- --:--:--  1225
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER32 -d transaction=32.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    208   1375 --:--:-- --:--:-- --:--:--  1652
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER33 -d transaction=33.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    147    970 --:--:-- --:--:-- --:--:--  1117
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER34 -d transaction=34.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    178   1178 --:--:-- --:--:-- --:--:--  1357
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER35 -d transaction=35.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    227   1500 --:--:-- --:--:-- --:--:--  1809
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER36 -d transaction=36.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    227   1500 --:--:-- --:--:-- --:--:--  1727
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER37 -d transaction=37.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    250   1650 --:--:-- --:--:-- --:--:--  1900
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER38 -d transaction=38.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    217   1434 --:--:-- --:--:-- --:--:--  1652
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER39 -d transaction=39.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    250   1650 --:--:-- --:--:-- --:--:--  1900
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER40 -d transaction=40.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    200   1320 --:--:-- --:--:-- --:--:--  1520
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER41 -d transaction=41.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    250   1650 --:--:-- --:--:-- --:--:--  1900
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER42 -d transaction=42.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    238   1571 --:--:-- --:--:-- --:--:--  1809
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER43 -d transaction=43.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    227   1500 --:--:-- --:--:-- --:--:--  1727
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER44 -d transaction=44.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    185   1222 --:--:-- --:--:-- --:--:--  1407
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER45 -d transaction=45.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    227   1500 --:--:-- --:--:-- --:--:--  1727
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER46 -d transaction=46.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    263   1736 --:--:-- --:--:-- --:--:--  2000
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER47 -d transaction=47.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    192   1269 --:--:-- --:--:-- --:--:--  1461
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER48 -d transaction=48.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    263   1736 --:--:-- --:--:-- --:--:--  2000
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER49 -d transaction=49.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    227   1500 --:--:-- --:--:-- --:--:--  1727
+null_resource.load_data (local-exec): Savedcurl 44.209.253.66:8080/demo/add -d name=CUSTOMER50 -d transaction=50.00
+null_resource.load_data (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+null_resource.load_data (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed
+null_resource.load_data (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+null_resource.load_data (local-exec): 100    38  100     5  100    33    250   1650 --:--:-- --:--:-- --:--:--  1900
+null_resource.load_data (local-exec): Savedwget -q -O- http://44.209.253.66
+null_resource.load_data (local-exec): [{"id":1,"name":"CUSTOMER1","transaction":"1.00"},{"id":2,"name":"CUSTOMER2","transaction":"2.00"},{"id":3,"name":"CUSTOMER3","transaction":"3.00"},{"id":4,"name":"CUSTOMER4","transaction":"4.00"},{"id":5,"name":"CUSTOMER5","transaction":"5.00"},{"id":6,"name":"CUSTOMER6","transaction":"6.00"},{"id":7,"name":"CUSTOMER7","transaction":"7.00"},{"id":8,"name":"CUSTOMER8","transaction":"8.00"},{"id":9,"name":"CUSTOMER9","transaction":"9.00"},{"id":10,"name":"CUSTOMER10","transaction":"10.00"},{"id":11,"name":"CUSTOMER11","transaction":"11.00"},{"id":12,"name":"CUSTOMER12","transaction":"12.00"},{"id":13,"name":"CUSTOMER13","transaction":"13.00"},{"id":14,"name":"CUSTOMER14","transaction":"14.00"},{"id":15,"name":"CUSTOMER15","transaction":"15.00"},{"id":16,"name":"CUSTOMER16","transaction":"16.00"},{"id":17,"name":"CUSTOMER17","transaction":"17.00"},{"id":18,"name":"CUSTOMER18","transaction":"18.00"},{"id":19,"name":"CUSTOMER19","transaction":"19.00"},{"id":20,"name":"CUSTOMER20","transaction":"20.00"},{"id":21,"name":"CUSTOMER21","transaction":"21.00"},{"id":22,"name":"CUSTOMER22","transaction":"22.00"},{"id":23,"name":"CUSTOMER23","transaction":"23.00"},{"id":24,"name":"CUSTOMER24","transaction":"24.00"},{"id":25,"name":"CUSTOMER25","transaction":"25.00"},{"id":26,"name":"CUSTOMER26","transaction":"26.00"},{"id":27,"name":"CUSTOMER27","transaction":"27.00"},{"id":28,"name":"CUSTOMER28","transaction":"28.00"},{"id":29,"name":"CUSTOMER29","transaction":"29.00"},{"id":30,"name":"CUSTOMER30","transaction":"30.00"},{"id":31,"name":"CUSTOMER31","transaction":"31.00"},{"id":32,"name":"CUSTOMER32","transaction":"32.00"},{"id":33,"name":"CUSTOMER33","transaction":"33.00"},{"id":34,"name":"CUSTOMER34","transaction":"34.00"},{"id":35,"name":"CUSTOMER35","transaction":"35.00"},{"id":36,"name":"CUSTOMER36","transaction":"36.00"},{"id":37,"name":"CUSTOMER37","transaction":"37.00"},{"id":38,"name":"CUSTOMER38","transaction":"38.00"},{"id":39,"name":"CUSTOMER39","transaction":"39.00"},{"id":40,"name":"CUSTOMER40","transaction":"40.00"},{"id":41,"name":"CUSTOMER41","transaction":"41.00"},{"id":42,"name":"CUSTOMER42","transaction":"42.00"},{"id":43,"name":"CUSTOMER43","transaction":"43.00"},{"id":44,"name":"CUSTOMER44","transaction":"44.00"},{"id":45,"name":"CUSTOMER45","transaction":"45.00"},{"id":46,"name":"CUSTOMER46","transaction":"46.00"},{"id":47,"name":"CUSTOMER47","transaction":"47.00"},{"id":48,"name":"CUSTOMER48","transaction":"48.00"},{"id":49,"name":"CUSTOMER49","transaction":"49.00"},{"id":50,"name":"CUSTOMER50","transaction":"50.00"}]
+null_resource.load_data: Creation complete after 2s [id=8749042035801561895]
+null_resource.load_test: Creating...
+null_resource.load_test: Provisioning with 'local-exec'...
+null_resource.load_test (local-exec): Executing: ["/bin/sh" "-c" "./load_test.sh"]
+null_resource.load_test (local-exec): initial readout at rest
+null_resource.load_test (local-exec): NAME                    REFERENCE                          TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+null_resource.load_test (local-exec): aewehr-api-autoscaler   Deployment/aewehr-api-deployment   <unknown>/50%   1         3         1          38s
+null_resource.load_test (local-exec): frontend-autoscaler     Deployment/frontend-deployment     <unknown>/50%   1         3         1          38s
+null_resource.load_test (local-exec): NAME                                    READY   STATUS    RESTARTS   AGE
+null_resource.load_test (local-exec): aewehr-api-deployment-9d969c664-pb5jb   1/1     Running   0          38s
+null_resource.load_test (local-exec): frontend-deployment-5f84cdb6f6-zx2rj    1/1     Running   0          38s
+null_resource.load_test (local-exec): sqldeployment-d7c66775c-czpsk           1/1     Running   0          39s
+null_resource.load_test (local-exec): running load-generator pod
+null_resource.load_test (local-exec): pod/load-generator created
+null_resource.load_test (local-exec): confirming load generator active
+null_resource.load_test (local-exec): load-generator                          0/1     ContainerCreating   0          2s
+null_resource.load_test (local-exec): sleeping 30 seconds to build load
+null_resource.load_test: Still creating... [10s elapsed]
+null_resource.load_test: Still creating... [20s elapsed]
+null_resource.load_test: Still creating... [30s elapsed]
+null_resource.load_test (local-exec): getting readout on initial hpa loads
+null_resource.load_test (local-exec): NAME                    REFERENCE                          TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
+null_resource.load_test (local-exec): aewehr-api-autoscaler   Deployment/aewehr-api-deployment   553%/50%   1         3         1          70s
+null_resource.load_test (local-exec): frontend-autoscaler     Deployment/frontend-deployment     85%/50%    1         3         1          70s
+null_resource.load_test (local-exec): load-generator                          1/1     Running   0          32s
+null_resource.load_test (local-exec): sleeping 45 more seconds to wait on scaling
+null_resource.load_test: Still creating... [40s elapsed]
+null_resource.load_test: Still creating... [50s elapsed]
+null_resource.load_test: Still creating... [1m0s elapsed]
+null_resource.load_test: Still creating... [1m10s elapsed]
+null_resource.load_test (local-exec): getting readout on scaling
+null_resource.load_test (local-exec): NAME                                    READY   STATUS    RESTARTS   AGE
+null_resource.load_test (local-exec): aewehr-api-deployment-9d969c664-84qd5   1/1     Running   0          55s
+null_resource.load_test (local-exec): aewehr-api-deployment-9d969c664-c2qqd   1/1     Running   0          55s
+null_resource.load_test (local-exec): aewehr-api-deployment-9d969c664-pb5jb   1/1     Running   0          115s
+null_resource.load_test (local-exec): frontend-deployment-5f84cdb6f6-b49nf    1/1     Running   0          54s
+null_resource.load_test (local-exec): frontend-deployment-5f84cdb6f6-zx2rj    1/1     Running   0          115s
+null_resource.load_test (local-exec): load-generator                          1/1     Running   0          77s
+null_resource.load_test (local-exec): sqldeployment-d7c66775c-czpsk           1/1     Running   0          116s
+null_resource.load_test (local-exec): NAME                    REFERENCE                          TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
+null_resource.load_test (local-exec): aewehr-api-autoscaler   Deployment/aewehr-api-deployment   192%/50%   1         3         3          115s
+null_resource.load_test (local-exec): frontend-autoscaler     Deployment/frontend-deployment     45%/50%    1         3         2          115s
+null_resource.load_test (local-exec): cleaning up load-generator
+null_resource.load_test (local-exec): pod "load-generator" deleted
+null_resource.load_test: Still creating... [1m20s elapsed]
+null_resource.load_test: Still creating... [1m30s elapsed]
+null_resource.load_test: Still creating... [1m40s elapsed]
+null_resource.load_test: Creation complete after 1m48s [id=3428456281921602718]
+null_resource.load_and_test_pod_user: Creating...
+null_resource.load_and_test_pod_user: Provisioning with 'local-exec'...
+null_resource.load_and_test_pod_user (local-exec): Executing: ["/bin/sh" "-c" "./poduser_setup_and_test.sh"]
+null_resource.load_and_test_pod_user (local-exec): serviceaccount/poduser created
+null_resource.load_and_test_pod_user (local-exec): role.rbac.authorization.k8s.io/poduserrole created
+null_resource.load_and_test_pod_user (local-exec): rolebinding.rbac.authorization.k8s.io/poduserrolebinding created
+null_resource.load_and_test_pod_user (local-exec): secret/poduser-secret created
+null_resource.load_and_test_pod_user (local-exec): User "poduser" set.
+null_resource.load_and_test_pod_user (local-exec): Context "poduser" created.
+null_resource.load_and_test_pod_user (local-exec): swapping to poduser
+null_resource.load_and_test_pod_user (local-exec): Switched to context "poduser".
+null_resource.load_and_test_pod_user (local-exec): CURRENT   NAME                          CLUSTER      AUTHINFO           NAMESPACE
+null_resource.load_and_test_pod_user (local-exec):           kubernetes-admin@kubernetes   kubernetes   kubernetes-admin
+null_resource.load_and_test_pod_user (local-exec): *         poduser                       kubernetes   poduser            default
+null_resource.load_and_test_pod_user (local-exec): kubectl get pods (should succeed)
+null_resource.load_and_test_pod_user (local-exec): NAME                                    READY   STATUS    RESTARTS   AGE
+null_resource.load_and_test_pod_user (local-exec): aewehr-api-deployment-9d969c664-84qd5   1/1     Running   0          86s
+null_resource.load_and_test_pod_user (local-exec): aewehr-api-deployment-9d969c664-c2qqd   1/1     Running   0          86s
+null_resource.load_and_test_pod_user (local-exec): aewehr-api-deployment-9d969c664-pb5jb   1/1     Running   0          2m26s
+null_resource.load_and_test_pod_user (local-exec): frontend-deployment-5f84cdb6f6-b49nf    1/1     Running   0          85s
+null_resource.load_and_test_pod_user (local-exec): frontend-deployment-5f84cdb6f6-zx2rj    1/1     Running   0          2m26s
+null_resource.load_and_test_pod_user (local-exec): sqldeployment-d7c66775c-czpsk           1/1     Running   0          2m27s
+null_resource.load_and_test_pod_user (local-exec): kubectl get hpa (shold fail)
+null_resource.load_and_test_pod_user (local-exec): Error from server (Forbidden): horizontalpodautoscalers.autoscaling is forbidden: User "system:serviceaccount:default:poduser" cannot list resource "horizontalpodautoscalers" in API group "autoscaling" in the namespace "default"
+null_resource.load_and_test_pod_user (local-exec): kubectl get deployments (should fail)
+null_resource.load_and_test_pod_user (local-exec): Error from server (Forbidden): deployments.apps is forbidden: User "system:serviceaccount:default:poduser" cannot list resource "deployments" in API group "apps" in the namespace "default"
+null_resource.load_and_test_pod_user (local-exec): kubectl get svc (should fail)
+null_resource.load_and_test_pod_user (local-exec): Error from server (Forbidden): services is forbidden: User "system:serviceaccount:default:poduser" cannot list resource "services" in API group "" in the namespace "default"
+null_resource.load_and_test_pod_user (local-exec): kubectl run poduser-created --image=nginx (should succeed)
+null_resource.load_and_test_pod_user (local-exec): pod/poduser-created created
+null_resource.load_and_test_pod_user (local-exec): NAME                                    READY   STATUS    RESTARTS   AGE
+null_resource.load_and_test_pod_user (local-exec): aewehr-api-deployment-9d969c664-84qd5   1/1     Running   0          92s
+null_resource.load_and_test_pod_user (local-exec): aewehr-api-deployment-9d969c664-c2qqd   1/1     Running   0          92s
+null_resource.load_and_test_pod_user (local-exec): aewehr-api-deployment-9d969c664-pb5jb   1/1     Running   0          2m32s
+null_resource.load_and_test_pod_user (local-exec): frontend-deployment-5f84cdb6f6-b49nf    1/1     Running   0          91s
+null_resource.load_and_test_pod_user (local-exec): frontend-deployment-5f84cdb6f6-zx2rj    1/1     Running   0          2m32s
+null_resource.load_and_test_pod_user (local-exec): poduser-created                         1/1     Running   0          5s
+null_resource.load_and_test_pod_user (local-exec): sqldeployment-d7c66775c-czpsk           1/1     Running   0          2m33s
+null_resource.load_and_test_pod_user (local-exec): kubectl delete pod poduser-created (should succeed)
+null_resource.load_and_test_pod_user (local-exec): pod "poduser-created" deleted
+null_resource.load_and_test_pod_user: Still creating... [10s elapsed]
+null_resource.load_and_test_pod_user (local-exec): NAME                                    READY   STATUS    RESTARTS   AGE
+null_resource.load_and_test_pod_user (local-exec): aewehr-api-deployment-9d969c664-84qd5   1/1     Running   0          97s
+null_resource.load_and_test_pod_user (local-exec): aewehr-api-deployment-9d969c664-c2qqd   1/1     Running   0          97s
+null_resource.load_and_test_pod_user (local-exec): aewehr-api-deployment-9d969c664-pb5jb   1/1     Running   0          2m37s
+null_resource.load_and_test_pod_user (local-exec): frontend-deployment-5f84cdb6f6-b49nf    1/1     Running   0          96s
+null_resource.load_and_test_pod_user (local-exec): frontend-deployment-5f84cdb6f6-zx2rj    1/1     Running   0          2m37s
+null_resource.load_and_test_pod_user (local-exec): sqldeployment-d7c66775c-czpsk           1/1     Running   0          2m38s
+null_resource.load_and_test_pod_user (local-exec): swapping back to admin
+null_resource.load_and_test_pod_user (local-exec): Switched to context "kubernetes-admin@kubernetes".
+null_resource.load_and_test_pod_user (local-exec): CURRENT   NAME                          CLUSTER      AUTHINFO           NAMESPACE
+null_resource.load_and_test_pod_user (local-exec): *         kubernetes-admin@kubernetes   kubernetes   kubernetes-admin
+null_resource.load_and_test_pod_user (local-exec):           poduser                       kubernetes   poduser            default
+null_resource.load_and_test_pod_user: Creation complete after 11s [id=4009826962055282772]
+null_resource.backup_etcd: Creating...
+null_resource.backup_etcd: Provisioning with 'local-exec'...
+null_resource.backup_etcd (local-exec): Executing: ["/bin/sh" "-c" "ansible-playbook -i myhosts backup-etcd.yml"]
+
+null_resource.backup_etcd (local-exec): PLAY [Backup Etcd On Master] ***************************************************
+
+null_resource.backup_etcd (local-exec): TASK [Gathering Facts] *********************************************************
+null_resource.backup_etcd (local-exec): ok: [3.85.31.168]
+
+null_resource.backup_etcd (local-exec): TASK [backup_etcd] *************************************************************
+null_resource.backup_etcd (local-exec): changed: [3.85.31.168]
+
+null_resource.backup_etcd (local-exec): TASK [debug] *******************************************************************
+null_resource.backup_etcd (local-exec): ok: [3.85.31.168] => {
+null_resource.backup_etcd (local-exec):     "backup_etcd_output.stdout_lines[0]": "Snapshot saved at etcd_backup.db"
+null_resource.backup_etcd (local-exec): }
+
+null_resource.backup_etcd (local-exec): PLAY RECAP *********************************************************************
+null_resource.backup_etcd (local-exec): 3.85.31.168                : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+null_resource.backup_etcd: Creation complete after 4s [id=8880865779017746532]
+
+Apply complete! Resources: 39 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+eip_ip = "44.209.253.66"
+master_ip = "3.85.31.168"
+master_private_ip = "10.0.1.240"
+worker1_ip = "54.92.153.2"
+worker2_ip = "50.17.136.174"
+alexanderwehrpr@ip-172-31-16-69:~/project1$
