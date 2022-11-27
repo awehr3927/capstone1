@@ -37,7 +37,7 @@ Build Instructions:
       noted:
         my_ami = "ami-0149b2da6ceec4bb0"
 
-  3 - deploy via terraform:
+  4 - deploy via terraform:
     terraform init
     terraform apply --auto-approve
 
